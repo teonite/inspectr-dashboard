@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Navbar, NavDropdown, MenuItem, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import styles from './styles.css';
 
 function NavBar() {
   return (
-    <Navbar inverse>
+    <Navbar className={styles.navbar} inverse>
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#">InspectR</a>
