@@ -13,6 +13,8 @@
 
 import React from 'react';
 
+import NavBar from 'components/NavBar';
+
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
@@ -22,6 +24,7 @@ export default class App extends React.Component { // eslint-disable-line react/
   render() {
     return (
       <div>
+        <NavBar />
         {this.props.children}
       </div>
     );
