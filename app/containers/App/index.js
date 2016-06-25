@@ -22,10 +22,14 @@ export default class App extends React.Component { // eslint-disable-line react/
   };
 
   render() {
+
+    // FIXME
+    const style = {'margin-left': 0, 'margin-right': 0};
+
     return (
       <div>
         <NavBar />
-        <div className="container">
+        <div className="container" style={style}>
           {this.props.children}
         </div>
       </div>
