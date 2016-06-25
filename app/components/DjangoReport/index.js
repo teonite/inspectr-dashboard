@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './styles.css';
-
 import Flake8Vis from 'components/Flake8Vis';
 import UnittestVis from 'components/UnittestVis';
 import CoverageVis from 'components/CoverageVis';
