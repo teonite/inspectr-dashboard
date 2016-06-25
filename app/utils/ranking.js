@@ -19,10 +19,15 @@ const W = {
   maintainability: 0.25 // not implemented yet
 };
 
-const MAX_RANK = 28;
+export const MAX_RANK = 28;
+
+// scales rank (from ranking functions) to range (1, MAX_RANK)
+const scaleRank = (rankResult) => Math.round((MAX_RANK - 1) * rankResult + 1);
+
+// functions that rank different flavored projects - return value (0, 1)
 const ranking = {
   django: ({coverage, unittest, flake8}) => {
-    return MAX_RANK * (
+    return (
         W.lint * invertedArctanAsymptote(flake8.summary.total_errors) +
         W.tests * (1 - unittest.summary.failed_tests / unittest.summary.total_tests) +
         W.coverage * coverage.summary.coverage_percent / 100
@@ -30,7 +35,7 @@ const ranking = {
       );
   },
   javascript: ({eslint}) => {
-    return MAX_RANK * (
+    return (
         W.lint * invertedArctanAsymptote(eslint.summary.total_problems)
         // TODO: W.tests * (1 - summary.failed_tests / summary.total_tests) +
         // TODO: W.coverage * summary.coverage_percent / 100 +
@@ -39,4 +44,4 @@ const ranking = {
   }
 };
 
-export const rankProject = (report) => Math.round(ranking[report.flavor](report));
+export const rankProject = (report) => scaleRank(ranking[report.flavor](report));
