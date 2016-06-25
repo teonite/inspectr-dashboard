@@ -1,13 +1,18 @@
 import React from 'react';
 
 import styles from './styles.css';
+import OutputDisplay from 'components/OutputDisplay';
+
 
 function DjangoReportDetails({report}) {
   return (
     <div>
-      <pre>{report.flake8.output.join('\n')}</pre>
-      <pre>{report.unittest.output.join('\n')}</pre>
-      <pre>{report.coverage.output.join('\n')}</pre>
+      <h1>flake8</h1>
+      <OutputDisplay output={report.flake8.output} />
+      <h1>unittest</h1>
+      <OutputDisplay output={report.unittest.output} />
+      <h1>coverage.py</h1>
+      <OutputDisplay output={report.coverage.output} />
     </div>
   );
 }
