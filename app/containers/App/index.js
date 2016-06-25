@@ -24,7 +24,7 @@ export default class App extends React.Component { // eslint-disable-line react/
   render() {
 
     // FIXME
-    const style = {'margin-left': 0, 'margin-right': 0};
+    const style = {'marginLeft': 0, 'marginRight': 0};
 
     return (
       <div>

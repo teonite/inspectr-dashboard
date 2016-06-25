@@ -1,24 +1,43 @@
 import React from 'react';
 import { subscribe } from 'horizon-react';
-import { connect } from 'react-redux';
+import JavascriptReportDetails from 'components/JavascriptReportDetails';
+import DjangoReportDetails from 'components/DjangoReportDetails';
 
 
-export class ReportDetails extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class ReportDetails extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+  chooseReportType(report) {
+    let specificReport = null;
+    switch (report.flavor) {
+      case 'django':
+        specificReport = <DjangoReportDetails report={report} />;
+        break;
+      case 'javascript':
+        specificReport = <JavascriptReportDetails report={report} />;
+        break;
+      default:
+        // FIXME: unknown report type
+        specificReport = <JavascriptReportDetails report={report} />;
+    }
+
+    return specificReport;
+  }
+
   render() {
     return (
       <div>
-      This is ReportDetails container !
+        {this.props.reports.map((report, index) => this.chooseReportType(report))}
       </div>
     );
   }
 }
 
 ReportDetails.propTypes = {
-  reports: React.PropTypes.array.isRequired,
+  reports: React.PropTypes.array.isRequired
 };
 
 const mapDataToProps = {
-  reports: (hz) => hz('reports'),
+  reports: (hz, props) => hz('reports').find(props.params.reportId),
 };
 
 export default subscribe({
