@@ -1,14 +1,14 @@
 import React from 'react';
 import { subscribe } from 'horizon-react';
-import Report from 'components/Report';
+import ReportBlock from 'containers/ReportBlock';
 
 
 class Dashboard extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
-      <div class="row">
-        {this.props.reports.map((report, index) => <Report key={index} data={report}/>)}
+      <div className="row">
+        {this.props.reports.map((report, index) => <ReportBlock key={index} report={report}/>)}
       </div>
     );
   }
