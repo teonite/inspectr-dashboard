@@ -34,6 +34,22 @@ export default function createRoutes() {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/details/:reportId',
+      name: 'details',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/ReportDetails'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      }
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
