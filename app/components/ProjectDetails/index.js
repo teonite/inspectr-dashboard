@@ -4,18 +4,18 @@ import styles from './styles.css';
 import OutputDisplay from 'components/OutputDisplay';
 import ReportHeader from 'components/ReportHeader';
 
-function JavascriptReportDetails({report}) {
+function ProjectDetails({project}) {
   return (
     <div className="col-xs-12">
-      <ReportHeader report={report} />
-      {report.reports.map((r, index) => (
+      <ReportHeader project={project} />
+      {project.reports.map((report, index) => (
         <div key={index}>
-          <h2>{r.type}</h2>
-          <OutputDisplay output={r.output.join('\n')} />
+          <h2>{report.type}</h2>
+          <OutputDisplay output={report.output.join('\n')} />
         </div>
       ))}
     </div>
   );
 }
 
-export default JavascriptReportDetails;
+export default ProjectDetails;

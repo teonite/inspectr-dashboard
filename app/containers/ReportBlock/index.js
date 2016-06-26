@@ -9,37 +9,37 @@ import EslintVis from 'components/EslintVis';
 import KarmaTestsVis from 'components/KarmaTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
 
-function ReportBlock({report}) {
+function ReportBlock({project}) {
 
-  const chooseVis = (r, index) => {
+  const chooseVis = (report, index) => {
     let specificReport = null;
-    switch (r.type) {
+    switch (report.type) {
       case 'flake8':
-        specificReport = <Flake8Vis key={index} summary={r.summary} />;
+        specificReport = <Flake8Vis key={index} summary={report.summary} />;
         break;
       case 'django-unittest':
-        specificReport = <UnittestVis key={index} summary={r.summary} />;
+        specificReport = <UnittestVis key={index} summary={report.summary} />;
         break;
       case 'django-unittest-coverage':
-        specificReport = <CoverageVis key={index} summary={r.summary} />;
+        specificReport = <CoverageVis key={index} summary={report.summary} />;
         break;
       case 'eslint':
-        specificReport = <EslintVis key={index} summary={r.summary} />;
+        specificReport = <EslintVis key={index} summary={report.summary} />;
         break;
       case 'karma':
-        specificReport = <KarmaTestsVis key={index} summary={r.summary} />;
+        specificReport = <KarmaTestsVis key={index} summary={report.summary} />;
         break;
       case 'karma-coverage':
-        specificReport = <KarmaCoverageVis key={index} summary={r.summary} />;
+        specificReport = <KarmaCoverageVis key={index} summary={report.summary} />;
         break;
     }
     return specificReport
   };
 
   return (
-    <div className="col-xs-4">
-      <ReportHeader report={report}/>
-      {report.reports.map((r, index) => chooseVis(r, index))}
+    <div className="col-xs-6">
+      <ReportHeader project={project}/>
+      {project.reports.map((report, index) => chooseVis(report, index))}
     </div>
   );
 }

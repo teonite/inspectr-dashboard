@@ -22,7 +22,7 @@ export default function createRoutes() {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/Dashboard'),
+          System.import('containers/DashboardPage'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -34,11 +34,11 @@ export default function createRoutes() {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '/details/:reportId',
+      path: '/details/:projectId',
       name: 'details',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/ReportDetails'),
+          System.import('containers/ProjectDetailsPage'),
         ]);
 
         const renderRoute = loadModule(cb);

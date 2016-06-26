@@ -67,9 +67,9 @@ const rankImages = {
 };
 
 
-function RankVis({report}) {
+function RankVis({project}) {
 
-  const projectRank = rankProject(report);
+  const projectRank = rankProject(project);
   const title = `${projectRank}/${MAX_RANK}`;
 
   return (
