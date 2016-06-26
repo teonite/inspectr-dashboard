@@ -9,6 +9,8 @@ function JavascriptReportDetails({report}) {
     <div>
       <h1>ESLint</h1>
       <OutputDisplay output={report.eslint.output.join('\n')} />
+      <h1>Karma</h1>
+      <OutputDisplay output={report.karma.output.join('\n')} />
     </div>
   );
 }
