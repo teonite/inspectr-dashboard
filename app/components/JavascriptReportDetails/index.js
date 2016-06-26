@@ -8,10 +8,12 @@ function JavascriptReportDetails({report}) {
   return (
     <div className="col-xs-12">
       <ReportHeader report={report} />
-      <h2>ESLint</h2>
-      <OutputDisplay output={report.eslint.output.join('\n')} />
-      <h2>Karma</h2>
-      <OutputDisplay output={report.karma.output.join('\n')} />
+      {report.reports.map((r, index) => (
+        <div key={index}>
+          <h2>{r.type}</h2>
+          <OutputDisplay output={r.output.join('\n')} />
+        </div>
+      ))}
     </div>
   );
 }

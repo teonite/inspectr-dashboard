@@ -1,7 +1,5 @@
 import React from 'react';
 
-import DjangoReport from 'components/DjangoReport';
-import JavascriptReport from 'components/JavascriptReport';
 import ReportHeader from 'components/ReportHeader';
 
 import Flake8Vis from 'components/Flake8Vis';
