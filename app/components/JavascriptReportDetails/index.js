@@ -6,7 +6,7 @@ import ReportHeader from 'components/ReportHeader';
 
 function JavascriptReportDetails({report}) {
   return (
-    <div>
+    <div className="col-xs-12">
       <ReportHeader report={report} />
       <h2>ESLint</h2>
       <OutputDisplay output={report.eslint.output.join('\n')} />

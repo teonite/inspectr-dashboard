@@ -7,7 +7,7 @@ import ReportHeader from 'components/ReportHeader';
 
 function DjangoReportDetails({report}) {
   return (
-    <div>
+    <div className="col-xs-12">
       <ReportHeader report={report} />
       <h2>flake8</h2>
       <OutputDisplay output={report.flake8.output.join('\n')} />

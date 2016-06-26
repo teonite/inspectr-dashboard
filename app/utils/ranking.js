@@ -34,11 +34,11 @@ const ranking = {
         // TODO: + W.maintainability * maintainability
       );
   },
-  javascript: ({eslint}) => {
+  javascript: ({eslint, karma}) => {
     return (
-        W.lint * invertedArctanAsymptote(eslint.summary.total_problems)
-        // TODO: W.tests * (1 - summary.failed_tests / summary.total_tests) +
-        // TODO: W.coverage * summary.coverage_percent / 100 +
+        W.lint * invertedArctanAsymptote(eslint.summary.total_problems) +
+        W.tests * (1 - karma.summary.karma.failed_tests / karma.summary.karma.total_tests) +
+        W.coverage * karma.summary.coverage.lines_percent / 100
         // TODO: + W.maintainability * maintainability
       );
   }
