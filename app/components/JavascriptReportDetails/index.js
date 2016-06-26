@@ -8,7 +8,7 @@ function JavascriptReportDetails({report}) {
   return (
     <div>
       <h1>ESLint</h1>
-      <OutputDisplay output={report.eslint.output} />
+      <OutputDisplay output={report.eslint.output.join('\n')} />
     </div>
   );
 }

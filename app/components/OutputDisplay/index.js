@@ -19,7 +19,7 @@ class OutputDisplay extends React.Component {
           click
         </Button>
         <Panel collapsible expanded={this.state.open}>
-          <pre>{this.props.output.join('\n')}</pre>
+          <pre>{this.props.output}</pre>
         </Panel>
       </div>
     );
