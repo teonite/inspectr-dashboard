@@ -11,38 +11,23 @@ export const invertedArctanAsymptote = (x, div = 10, max = 1) => {
   return -asymptote + max;
 };
 
-// rank weights
-const W = {
-  tests: 0.25,          // tests_pass / tests_total
-  coverage: 0.25,       // test_coverage
-  lint: 0.25,           // linting, using arctan asymptote
-  maintainability: 0.25 // not implemented yet
+// functions that rank different reports - return value in range <0, 1)
+const reportRanking = {
+  'flake8': (report) => invertedArctanAsymptote(report.summary.total_errors),
+  'django-unittest': (report) => (1 - report.summary.failed_tests / report.summary.total_tests),
+  'django-unittest-coverage': (report) => report.summary.coverage_percent / 100,
+  'eslint': (report) => invertedArctanAsymptote(report.summary.total_problems),
+  'karma': (report) => (1 - report.summary.failed_tests / report.summary.total_tests),
+  'karma-coverage': (report) => report.summary.lines_percent / 100
 };
 
 export const MAX_RANK = 28;
 
-// scales rank (from ranking functions) to range (1, MAX_RANK)
-const scaleRank = (rankResult) => Math.round((MAX_RANK - 1) * rankResult + 1);
+export const rankProject = (project) => {
+  // calculate rank: range <0, 1)
+  const partials = project.reports.map(report => reportRanking[report['type']](report));
+  const rank = partials.reduce((a, b) => a + b) / partials.length;
 
-// functions that rank different flavored projects - return value (0, 1)
-const ranking = {
-  django: ({coverage, unittest, flake8}) => {
-    return (
-        W.lint * invertedArctanAsymptote(flake8.summary.total_errors) +
-        W.tests * (1 - unittest.summary.failed_tests / unittest.summary.total_tests) +
-        W.coverage * coverage.summary.coverage_percent / 100
-        // TODO: + W.maintainability * maintainability
-      );
-  },
-  javascript: ({eslint, karma}) => {
-    return (
-        W.lint * invertedArctanAsymptote(eslint.summary.total_problems) +
-        W.tests * (1 - karma.summary.karma.failed_tests / karma.summary.karma.total_tests) +
-        W.coverage * karma.summary.coverage.lines_percent / 100
-        // TODO: + W.maintainability * maintainability
-      );
-  }
-};
-
-// FIXME: ranking for granular reporters
-export const rankProject = (report) => 10; //scaleRank(ranking[report.flavor](report));
+  // scale it to range <0, MAX_RANK)
+  return Math.round((MAX_RANK - 1) * rank + 1);
+}
