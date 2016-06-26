@@ -44,4 +44,5 @@ const ranking = {
   }
 };
 
-export const rankProject = (report) => scaleRank(ranking[report.flavor](report));
+// FIXME: ranking for granular reporters
+export const rankProject = (report) => 10; //scaleRank(ranking[report.flavor](report));
