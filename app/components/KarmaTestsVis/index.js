@@ -12,7 +12,6 @@ function KarmaTestsVis({summary}) {
     <div className={styles.karmaTestsVis}>
       <h3>Total tests: <b>{summary.total_tests}</b> Executed: <b>{summary.executed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
       <Line percent={progress} strokeWidth='4'  />
-
     </div>
   );
 }

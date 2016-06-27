@@ -8,6 +8,7 @@ import CoverageVis from 'components/CoverageVis';
 import EslintVis from 'components/EslintVis';
 import KarmaTestsVis from 'components/KarmaTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
+import PytestVis from 'components/PytestVis';
 
 function ReportBlock({project}) {
 
@@ -17,10 +18,19 @@ function ReportBlock({project}) {
       case 'flake8':
         specificReport = <Flake8Vis key={index} summary={report.summary} />;
         break;
-      case 'django-unittest':
+      case 'django-test':
         specificReport = <UnittestVis key={index} summary={report.summary} />;
         break;
-      case 'django-unittest-coverage':
+      case 'coverage-django-test':
+        specificReport = <UnittestVis key={index} summary={report.summary} />;
+        break;
+      case 'pytest':
+        specificReport = <PytestVis key={index} summary={report.summary} />;
+        break;
+      case 'coverage-pytest':
+        specificReport = <PytestVis key={index} summary={report.summary} />;
+        break;
+      case 'coverage-py':
         specificReport = <CoverageVis key={index} summary={report.summary} />;
         break;
       case 'eslint':
