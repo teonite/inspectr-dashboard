@@ -16,10 +16,10 @@ class OutputDisplay extends React.Component {
     return (
       <div>
         <Button onClick={ ()=> this.setState({ open: !this.state.open })}>
-          click
+          output
         </Button>
         <Panel collapsible expanded={this.state.open}>
-          <pre>{this.props.output}</pre>
+          <pre>{this.props.stdout + this.props.stderr}</pre>
         </Panel>
       </div>
     );

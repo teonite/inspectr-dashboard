@@ -11,7 +11,7 @@ function ProjectDetails({project}) {
       {project.reports.map((report, index) => (
         <div key={index}>
           <h2>{report.type}</h2>
-          <OutputDisplay output={report.output.join('\n')} />
+          <OutputDisplay stdout={report.stdout} stderr={report.stderr} />
         </div>
       ))}
     </div>
