@@ -9,10 +9,16 @@ import EslintVis from 'components/EslintVis';
 import KarmaTestsVis from 'components/KarmaTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
 import PytestVis from 'components/PytestVis';
+import ErrorVis from 'components/ErrorVis';
 
 function ReportBlock({project}) {
 
   const chooseVis = (report, index) => {
+
+    if(report.summary === null) {
+      return <ErrorVis key={index} report={report}/>
+    }
+
     let specificReport = null;
     switch (report.type) {
       case 'flake8':

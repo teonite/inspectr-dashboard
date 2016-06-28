@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Line } from 'rc-progress';
-
 import styles from './styles.css';
+import ProgressBar from 'components/ProgressBar';
+
 
 function KarmaTestsVis({summary}) {
 
@@ -11,7 +11,7 @@ function KarmaTestsVis({summary}) {
   return (
     <div className={styles.karmaTestsVis}>
       <h3>Total tests: <b>{summary.total_tests}</b> Executed: <b>{summary.executed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
-      <Line percent={progress} strokeWidth='4'  />
+      <ProgressBar percent={progress} />
     </div>
   );
 }

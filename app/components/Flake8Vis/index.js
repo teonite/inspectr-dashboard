@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Line } from 'rc-progress';
-
 import styles from './styles.css';
 import { invertedArctanAsymptote } from 'utils/ranking';
+import ProgressBar from 'components/ProgressBar';
 
 
 function Flake8Vis({summary}) {
@@ -13,7 +12,7 @@ function Flake8Vis({summary}) {
   return (
     <div className={styles.flake8Vis}>
       <h3>Linter errors: <b>{summary.total_errors}</b></h3>
-      <Line percent={progress} strokeWidth='4' />
+      <ProgressBar percent={progress} />
     </div>
   );
 }

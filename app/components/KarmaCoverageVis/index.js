@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Line } from 'rc-progress';
-
 import styles from './styles.css';
+import ProgressBar from 'components/ProgressBar';
+
 
 function KarmaCoverageVis({summary}) {
   return (
     <div className={styles.karmaCoverageVis}>
       <h3>Test Coverage (Lines): <b>{summary.lines_percent}%</b></h3>
-      <Line percent={summary.lines_percent} strokeWidth='4'  />
+      <ProgressBar percent={summary.lines_percent} />
     </div>
   );
 }
