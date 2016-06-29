@@ -40,11 +40,11 @@ const rankImages = {
 
 function RankVis({ project }) {
   const projectRank = rankProject(project);
-  const alt = `${projectRank}/${MAX_RANK}`;
+  const title = `${projectRank}/${MAX_RANK}`;
 
   return (
     <span>
-      <img className={styles.rankImage} alt={alt} src={rankImages[projectRank]}></img>
+      <img className={styles.rankImage} title={title} src={rankImages[projectRank]}></img>
     </span>
   );
 }
