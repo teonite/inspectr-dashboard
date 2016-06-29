@@ -24,7 +24,7 @@ const reportRanking = {
   'coverage-pytest': (report) => (1 - report.summary.failed_tests / (report.summary.failed_tests + report.summary.passed_tests)),
 };
 
-export const MAX_RANK = 28;
+export const MAX_RANK = 14;
 
 export const rankProject = (project) => {
   // calculate rank: range <0, 1)
