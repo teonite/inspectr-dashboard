@@ -1,0 +1,11 @@
+{
+  "name": "inspectr-dashboard",
+  "version": "0.0.1",
+  "description": "Code quality dashboard",
+  "repository": {
+  },
+  "license": "MIT",
+  "dependencies": {
+    "horizon": "^1.1.3"
+  }
+}
