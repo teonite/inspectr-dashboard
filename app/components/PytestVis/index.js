@@ -16,4 +16,8 @@ function PytestVis({summary}) {
   );
 }
 
+PytestVis.propTypes = {
+  summary: React.PropTypes.object.isRequired
+}
+
 export default PytestVis;

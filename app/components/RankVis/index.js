@@ -1,9 +1,8 @@
 import React from 'react';
 
 import styles from './styles.css';
-import { rankProject } from 'utils/ranking';
+import { rankProject, MAX_RANK } from 'utils/ranking';
 
-import { MAX_RANK } from 'utils/ranking';
 
 // FIXME: that's stupid, but MVP bitch!
 import r1 from './rank-images/1.png';
@@ -35,20 +34,23 @@ const rankImages = {
   11: r11,
   12: r12,
   13: r13,
-  14: r14
+  14: r14,
 };
 
 
-function RankVis({project}) {
-
+function RankVis({ project }) {
   const projectRank = rankProject(project);
-  const title = `${projectRank}/${MAX_RANK}`;
+  const alt = `${projectRank}/${MAX_RANK}`;
 
   return (
     <span>
-      <img className={styles.rankImage} title={title} src={rankImages[projectRank]}></img>
+      <img className={styles.rankImage} alt={alt} src={rankImages[projectRank]}></img>
     </span>
   );
 }
+
+RankVis.propTypes = {
+  project: React.PropTypes.object.isRequired
+};
 
 export default RankVis;

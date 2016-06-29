@@ -20,9 +20,9 @@ ProjectDetailsPage.propTypes = {
 };
 
 const mapDataToProps = {
-  projects: (hz, props) => hz('reports').find(props.params.projectId),
+  projects: (hz, props) => hz('reports').find(props.params.projectId)
 };
 
 export default subscribe({
-  mapDataToProps,
+  mapDataToProps
 })(ProjectDetailsPage);

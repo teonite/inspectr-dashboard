@@ -2,11 +2,10 @@ import React from 'react';
 
 import styles from './styles.css';
 import { invertedArctanAsymptote } from 'utils/ranking';
-import ProgressBar from 'components/ProgressBar'
+import ProgressBar from 'components/ProgressBar';
 
 
-function EslintVis({summary}) {
-
+function EslintVis({ summary }) {
   const progress = 100 * invertedArctanAsymptote(summary.total_problems);
 
   return (
@@ -15,6 +14,10 @@ function EslintVis({summary}) {
       <ProgressBar percent={progress} />
     </div>
   );
+}
+
+EslintVis.propTypes = {
+  summary: React.PropTypes.object.isRequired
 }
 
 export default EslintVis;

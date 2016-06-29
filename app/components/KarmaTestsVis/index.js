@@ -16,4 +16,8 @@ function KarmaTestsVis({summary}) {
   );
 }
 
+KarmaTestsVis.propTypes = {
+  summary: React.PropTypes.object.isRequired
+}
+
 export default KarmaTestsVis;

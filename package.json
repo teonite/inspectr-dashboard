@@ -88,6 +88,7 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
+      "block-no-empty": null,
       "color-hex-case": "upper",
       "string-quotes": "single",
       "font-family-name-quotes": "always-where-recommended",

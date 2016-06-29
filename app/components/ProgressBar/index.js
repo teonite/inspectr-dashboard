@@ -10,4 +10,8 @@ function ProgressBar({percent}) {
   );
 }
 
-export default ProgressBar;
+ProgressBar.propTypes = {
+  percent: React.PropTypes.number.isRequired
+}
+
+export default ProgressBar

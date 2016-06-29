@@ -9,7 +9,7 @@ describe('selectLocationState', () => {
       locationBeforeTransitions: null,
     });
     const mockedState = fromJS({
-      route,
+      route
     });
     expect(selectLocationState()(mockedState)).toEqual(route.toJS());
   });

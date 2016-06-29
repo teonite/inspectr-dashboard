@@ -15,13 +15,13 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
 }
 
 DashboardPage.propTypes = {
-  projects: React.PropTypes.array.isRequired,
+  projects: React.PropTypes.array.isRequired
 };
 
 const mapDataToProps = {
-  projects: (hz) => hz('reports'),
+  projects: (hz) => hz('reports')
 };
 
 export default subscribe({
-  mapDataToProps,
+  mapDataToProps
 })(DashboardPage);

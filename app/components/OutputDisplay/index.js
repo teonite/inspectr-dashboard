@@ -14,7 +14,7 @@ class OutputDisplay extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.outputDisplay}>
         <Button onClick={ ()=> this.setState({ open: !this.state.open })}>
           output
         </Button>
@@ -25,6 +25,11 @@ class OutputDisplay extends React.Component {
     );
   }
 
+}
+
+OutputDisplay.propTypes = {
+  stdout: React.PropTypes.string.isRequired,
+  stderr: React.PropTypes.string.isRequired
 }
 
 export default OutputDisplay;

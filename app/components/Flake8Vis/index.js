@@ -17,4 +17,8 @@ function Flake8Vis({summary}) {
   );
 }
 
+Flake8Vis.propTypes = {
+  summary: React.PropTypes.object.isRequired
+}
+
 export default Flake8Vis;

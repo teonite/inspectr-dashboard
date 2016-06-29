@@ -13,4 +13,8 @@ function KarmaCoverageVis({summary}) {
   );
 }
 
+KarmaCoverageVis.propTypes = {
+  summary: React.PropTypes.object.isRequired
+}
+
 export default KarmaCoverageVis;

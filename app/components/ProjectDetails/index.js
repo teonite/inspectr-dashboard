@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import OutputDisplay from 'components/OutputDisplay';
 import ReportHeader from 'components/ReportHeader';
 
@@ -16,6 +15,10 @@ function ProjectDetails({project}) {
       ))}
     </div>
   );
+}
+
+ProjectDetails.propTypes = {
+  project: React.PropTypes.object.isRequired
 }
 
 export default ProjectDetails;

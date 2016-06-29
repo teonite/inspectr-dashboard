@@ -16,4 +16,9 @@ function UnittestVis({summary}) {
   );
 }
 
+UnittestVis.propTypes = {
+  summary: React.PropTypes.object.isRequired,
+};
+
+
 export default UnittestVis;

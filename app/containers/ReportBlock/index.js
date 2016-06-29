@@ -11,12 +11,10 @@ import KarmaCoverageVis from 'components/KarmaCoverageVis';
 import PytestVis from 'components/PytestVis';
 import ErrorVis from 'components/ErrorVis';
 
-function ReportBlock({project}) {
-
+function ReportBlock({ project }) {
   const chooseVis = (report, index) => {
-
-    if(report.summary === null) {
-      return <ErrorVis key={index} report={report}/>
+    if (report.summary === null) {
+      return <ErrorVis key={index} report={report} />
     }
 
     let specificReport = null;
@@ -58,6 +56,10 @@ function ReportBlock({project}) {
       {project.reports.map((report, index) => chooseVis(report, index))}
     </div>
   );
+}
+
+ReportBlock.propTypes = {
+  project: React.PropTypes.object.isRequired
 }
 
 export default ReportBlock;
