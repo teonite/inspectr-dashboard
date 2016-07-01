@@ -1,12 +1,14 @@
-FROM mhart/alpine-node:6
+FROM node:6
 MAINTAINER Jacek Chmielewski "jchmielewski@teonite.com"
 
-RUN apk update && apk add git
+# https://github.com/npm/npm/issues/9863
+RUN cd $(npm root -g)/npm \
+ && npm install fs-extra \
+ && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
 
-ADD docker/package.json /app/package.json
-RUN cd /app/ && npm install
+ADD . /app
+RUN cd /app/ && npm install && npm run build
 
-ADD build/ /app/dist
 ADD docker/.hz/ /app/.hz/
 
 EXPOSE 80

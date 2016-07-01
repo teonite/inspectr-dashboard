@@ -1,11 +1,7 @@
 build_image:
   stage: build
   script:
-    - npm install
-    - npm run build
     - docker build -t tcn.re/teonite/inspectr .
     - docker push tcn.re/teonite/inspectr
   tags:
     - shell
-  cache:
-    untracked: true
