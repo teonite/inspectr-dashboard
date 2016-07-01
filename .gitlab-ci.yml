@@ -1,7 +1,7 @@
 build_image:
   stage: build
   script:
-    - docker build -t tcn.re/teonite/inspectr .
-    - docker push tcn.re/teonite/inspectr
+    - docker build -t tcn.re/inspectr/dashboard .
+    - docker push tcn.re/inspectr/dashboard
   tags:
     - shell
