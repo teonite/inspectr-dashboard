@@ -1,0 +1,10 @@
+{
+  "project_name": "Inspectr Dashboard",
+
+  "reporters": [
+    {
+      "type": "eslint",
+      "command": "npm run lint:js"
+    }
+  ]
+}
