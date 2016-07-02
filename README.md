@@ -9,6 +9,7 @@ code quality tools. Those are the ones supported now, more under way:
 * coverage.py reports
 * eslint javascript linter
 * jasmine tests
+* mocha tests
 * karma-coverage reports
 
 # Installation

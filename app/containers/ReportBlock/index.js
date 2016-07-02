@@ -7,6 +7,7 @@ import UnittestVis from 'components/UnittestVis';
 import CoverageVis from 'components/CoverageVis';
 import EslintVis from 'components/EslintVis';
 import JasmineTestsVis from 'components/JasmineTestsVis';
+import MochaTestsVis from 'components/MochaTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
 import PytestVis from 'components/PytestVis';
 import ErrorVis from 'components/ErrorVis';
@@ -25,13 +26,7 @@ function ReportBlock({ project }) {
       case 'unittest':
         specificReport = <UnittestVis key={index} summary={report.summary} />;
         break;
-      case 'coverage-django-test':
-        specificReport = <UnittestVis key={index} summary={report.summary} />;
-        break;
       case 'pytest':
-        specificReport = <PytestVis key={index} summary={report.summary} />;
-        break;
-      case 'coverage-pytest':
         specificReport = <PytestVis key={index} summary={report.summary} />;
         break;
       case 'coverage-py':
@@ -42,6 +37,9 @@ function ReportBlock({ project }) {
         break;
       case 'jasmine':
         specificReport = <JasmineTestsVis key={index} summary={report.summary} />;
+        break;
+      case 'mocha':
+        specificReport = <MochaTestsVis key={index} summary={report.summary} />;
         break;
       case 'karma-coverage':
         specificReport = <KarmaCoverageVis key={index} summary={report.summary} />;

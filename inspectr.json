@@ -5,6 +5,10 @@
     {
       "type": "eslint",
       "command": "npm run lint:js"
+    },
+    {
+      "type": "mocha",
+      "command": "karma start internals/testing/karma.conf.js --single-run"
     }
   ]
 }
