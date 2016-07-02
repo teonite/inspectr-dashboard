@@ -1,35 +1,19 @@
 stages:
   - build
-  - deploy
   - inspect
-  - clean
 
 build_image:
   stage: build
   script:
     - docker build -t tcn.re/inspectr/dashboard .
-  tags:
-    - shell
-
-
-push_image:
-  stage: deploy
-  script:
     - docker push tcn.re/inspectr/dashboard
   tags:
     - shell
 
-metainspect:
-  - stage: inspect
-  - script:
-    - docker run -v $(pwd):/code -v /home/gitlab-runner/inspectr_connector_docker.json:/root/.inspectr_connector.json tcn.re/inspectr/inspectr
-  - tags:
-    - shell
-
-cleanup:
-  stage: clean
+inspect:
+  stage: inspect
   script:
+    - docker run -v $(pwd):/code -v /home/gitlab-runner/inspectr_connector_docker.json:/root/.inspectr_connector.json tcn.re/inspectr/inspectr || true
     - docker run -v $(pwd):/code tcn.re/inspectr/inspectr find /code -user root -exec rm -rf "{}" ';' || true
   tags:
     - shell
-  when: always
