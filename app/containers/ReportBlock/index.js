@@ -6,7 +6,7 @@ import Flake8Vis from 'components/Flake8Vis';
 import UnittestVis from 'components/UnittestVis';
 import CoverageVis from 'components/CoverageVis';
 import EslintVis from 'components/EslintVis';
-import KarmaTestsVis from 'components/KarmaTestsVis';
+import JasmineTestsVis from 'components/JasmineTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
 import PytestVis from 'components/PytestVis';
 import ErrorVis from 'components/ErrorVis';
@@ -22,7 +22,7 @@ function ReportBlock({ project }) {
       case 'flake8':
         specificReport = <Flake8Vis key={index} summary={report.summary} />;
         break;
-      case 'django-test':
+      case 'unittest':
         specificReport = <UnittestVis key={index} summary={report.summary} />;
         break;
       case 'coverage-django-test':
@@ -40,8 +40,8 @@ function ReportBlock({ project }) {
       case 'eslint':
         specificReport = <EslintVis key={index} summary={report.summary} />;
         break;
-      case 'karma':
-        specificReport = <KarmaTestsVis key={index} summary={report.summary} />;
+      case 'jasmine':
+        specificReport = <JasmineTestsVis key={index} summary={report.summary} />;
         break;
       case 'karma-coverage':
         specificReport = <KarmaCoverageVis key={index} summary={report.summary} />;

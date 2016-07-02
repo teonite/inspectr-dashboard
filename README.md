@@ -4,11 +4,11 @@ Inspectr gives you insight into quality of your code at a glance. It supports va
 code quality tools. Those are the ones supported now, more under way:
 
 * flake8 python linter
-* django unittests
+* python unittests
 * py.test tests
 * coverage.py reports
 * eslint javascript linter
-* karma tests
+* jasmine tests
 * karma-coverage reports
 
 # Installation
