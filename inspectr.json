@@ -9,6 +9,10 @@
     {
       "type": "mocha",
       "command": "karma start internals/testing/karma.conf.js --single-run"
+    },
+    {
+      "type": "karma-coverage",
+      "command": null
     }
   ]
 }

@@ -10,7 +10,7 @@ function MochaTestsVis({summary}) {
 
   return (
     <div className={styles.mochaTestsVis}>
-      <h3>Total tests: <b>{summary.total_tests}</b> Executed: <b>{summary.executed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
+      <h3>Total tests: <b>{summary.total_tests}</b> Passed: <b>{summary.passed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
       <ProgressBar percent={progress} />
     </div>
   );
