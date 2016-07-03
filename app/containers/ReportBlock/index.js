@@ -6,6 +6,7 @@ import Flake8Vis from 'components/Flake8Vis';
 import UnittestVis from 'components/UnittestVis';
 import CoverageVis from 'components/CoverageVis';
 import EslintVis from 'components/EslintVis';
+import CoffeelintVis from 'components/CoffeelintVis';
 import JasmineTestsVis from 'components/JasmineTestsVis';
 import MochaTestsVis from 'components/MochaTestsVis';
 import KarmaCoverageVis from 'components/KarmaCoverageVis';
@@ -38,6 +39,9 @@ function ReportBlock({ project }) {
         break;
       case 'eslint':
         specificReport = <EslintVis key={index} summary={report.summary} />;
+        break;
+      case 'coffeelint':
+        specificReport = <CoffeelintVis key={index} summary={report.summary} />;
         break;
       case 'jasmine':
         specificReport = <JasmineTestsVis key={index} summary={report.summary} />;

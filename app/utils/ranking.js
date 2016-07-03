@@ -18,6 +18,7 @@ const reportRanking = {
   'coverage-django-test': (report) => (1 - report.summary.failed_tests / report.summary.total_tests),
   'coverage-py': (report) => report.summary.coverage_percent / 100,
   'eslint': (report) => invertedArctanAsymptote(report.summary.total_problems),
+  'coffeelint': (report) => invertedArctanAsymptote(report.summary.total_problems),
   'jasmine': (report) => (1 - report.summary.failed_tests / report.summary.total_tests),
   'mocha': (report) => (1 - report.summary.failed_tests / report.summary.total_tests),
   'karma-coverage': (report) => report.summary.lines_percent / 100,
