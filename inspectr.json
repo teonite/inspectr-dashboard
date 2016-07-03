@@ -8,7 +8,7 @@
     },
     {
       "type": "mocha",
-      "command": "karma start internals/testing/karma.conf.js --single-run"
+      "command": "npm run test"
     },
     {
       "type": "karma-coverage",
