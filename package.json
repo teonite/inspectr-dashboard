@@ -24,6 +24,7 @@
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:production": "npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
+    "horizon": "hz serve --dev --debug --allow-unauthenticated --permissions no",
     "pagespeed": "node ./internals/scripts/pagespeed.js",
     "presetup": "npm i chalk",
     "setup": "node ./internals/scripts/setup.js",
