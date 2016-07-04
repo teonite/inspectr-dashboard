@@ -1,14 +1,15 @@
 import React from 'react';
 
 import styles from './styles.css';
-import ProgressBar from 'components/ProgressBar';
-
+import MultiProgressBar from 'components/MultiProgressBar';
+import { colors } from 'utils/constants';
 
 function KarmaCoverageVis({summary}) {
+  const items = [{percent: summary.lines_percent, color: colors.ok}];
   return (
     <div className={styles.karmaCoverageVis}>
       <h3>Test Coverage (Lines): <b>{summary.lines_percent}%</b></h3>
-      <ProgressBar percent={summary.lines_percent} />
+      <MultiProgressBar items={items} />
     </div>
   );
 }

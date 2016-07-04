@@ -1,17 +1,22 @@
 import React from 'react';
 
 import styles from './styles.css';
-import ProgressBar from 'components/ProgressBar';
+import MultiProgressBar from 'components/MultiProgressBar';
+import { colors } from 'utils/constants';
 
 
 function PytestVis({summary}) {
 
-  const progress = 100 * (1 - summary.failed_tests / (summary.failed_tests + summary.passed_tests));
+  const total = 100 * (1 - summary.failed_tests / (summary.failed_tests + summary.passed_tests));
+  const items = [
+    {percent: total, color: colors.ok},
+    {percent: 100 - total, color: colors.error}
+  ];
 
   return (
     <div className={styles.pytestVis}>
       <h3>Passed tests: <b>{summary.passed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
-      <ProgressBar percent={progress} />
+      <MultiProgressBar items={items} />
     </div>
   );
 }

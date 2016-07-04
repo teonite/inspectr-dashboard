@@ -1,13 +1,16 @@
 import React from 'react';
 
-import { Line } from 'rc-progress';
 import styles from './styles.css';
+import MultiProgressBar from 'components/MultiProgressBar';
+import { colors } from 'utils/constants';
+
 
 function ErrorVis({ report }) {
+  const items = [{percent: 100, color: colors.error}];
   return (
     <div className={styles.errorVis}>
       <h3>{report.type} - error</h3>
-      <Line percent={100} strokeWidth={2} strokeColor={'#ff6868'} />
+      <MultiProgressBar items={items} />
     </div>
   );
 }

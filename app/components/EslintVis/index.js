@@ -2,16 +2,20 @@ import React from 'react';
 
 import styles from './styles.css';
 import { invertedArctanAsymptote } from 'utils/ranking';
-import ProgressBar from 'components/ProgressBar';
-
+import MultiProgressBar from 'components/MultiProgressBar';
+import { colors } from 'utils/constants';
 
 function EslintVis({ summary }) {
-  const progress = 100 * invertedArctanAsymptote(summary.total_problems);
-
+  const total = 100 * invertedArctanAsymptote(summary.total_problems);
+  const items = [
+    {percent: total, color: colors.ok},
+    {percent: (100 - total) * summary.total_warnings / summary.total_problems, color: colors.warning},
+    {percent: (100 - total) * summary.total_errors  / summary.total_problems, color: colors.error}
+  ];
   return (
     <div className={styles.eslintVis}>
       <h3>Eslint warnings: <b>{summary.total_warnings}</b> Errors: <b>{summary.total_errors}</b></h3>
-      <ProgressBar percent={progress} />
+      <MultiProgressBar items={items} />
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import React from 'react';
 
 import styles from './styles.css';
-import ProgressBar from 'components/ProgressBar';
+import MultiProgressBar from 'components/MultiProgressBar';
+import { colors } from 'utils/constants';
 
 function CoverageVis({ summary }) {
+  const items = [{percent: summary.coverage_percent, color: colors.ok}];
   return (
     <div className={styles.coverageVis}>
       <h3>Test Coverage: <b>{summary.coverage_percent}%</b></h3>
-      <ProgressBar percent={summary.coverage_percent} />
+      <MultiProgressBar items={items} />
     </div>
   );
 }
