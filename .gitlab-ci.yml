@@ -13,6 +13,7 @@ build_image:
 inspect:
   stage: inspect
   script:
+    - npm install
     - docker run -v $(pwd):/code -v /home/gitlab-runner/.inspectr_connector.json:/root/.inspectr_connector.json tcn.re/inspectr/inspectr || true
     - docker run -v $(pwd):/code tcn.re/inspectr/inspectr find /code -user root -exec rm -rf "{}" ';' || true
   tags:

@@ -6,10 +6,10 @@ import { colors } from 'utils/constants';
 
 function UnittestVis({summary}) {
 
-  const total = 100 * (1 - summary.failed_tests / summary.total_tests);
+  const totalOk = 100 * (1 - summary.failed_tests / summary.total_tests);
   const items = [
-    {percent: total, color: colors.ok},
-    {percent: 100 - total, color: colors.error}
+    {percent: totalOk, color: colors.ok},
+    {percent: 100 - totalOk, color: colors.error}
   ];
 
   return (

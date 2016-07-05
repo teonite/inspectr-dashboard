@@ -7,10 +7,10 @@ import { colors } from 'utils/constants';
 
 function PytestVis({summary}) {
 
-  const total = 100 * (1 - summary.failed_tests / (summary.failed_tests + summary.passed_tests));
+  const totalOk = 100 * (1 - summary.failed_tests / (summary.failed_tests + summary.passed_tests));
   const items = [
-    {percent: total, color: colors.ok},
-    {percent: 100 - total, color: colors.error}
+    {percent: totalOk, color: colors.ok},
+    {percent: 100 - totalOk, color: colors.error}
   ];
 
   return (

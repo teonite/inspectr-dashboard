@@ -7,10 +7,10 @@ import { colors } from 'utils/constants';
 
 function Flake8Vis({summary}) {
 
-  const total = 100 * invertedArctanAsymptote(summary.total_errors);
+  const totalOk = 100 * invertedArctanAsymptote(summary.total_errors);
   const items = [
-    {percent: total, color: colors.ok},
-    {percent: (100 - total), color: colors.error}
+    {percent: totalOk, color: colors.ok},
+    {percent: (100 - totalOk), color: colors.error}
   ];
 
   return (
