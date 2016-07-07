@@ -1,21 +1,20 @@
 import React from 'react';
 
 import styles from './styles.css';
-import MultiProgressBar from 'components/MultiProgressBar';
+import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
 function RadonMaintainabilityVis({summary}) {
 
-  const total = summary.A + summary.B + summary.C;
   const segments = [
-    {percent: summary.A * 100 / total, color: colors.ok},
-    {percent: summary.B * 100 / total, color: colors.warning},
-    {percent: summary.C * 100 / total, color: colors.error}
+    {items: summary.A, color: colors.ok},
+    {items: summary.B, color: colors.warning},
+    {items: summary.C, color: colors.error}
   ];
   return (
     <div className={styles.radonMaintainabilityVis}>
       <h3>Maintainability A: <b>{summary.A}</b> B: <b>{summary.B}</b> C: <b>{summary.C}</b></h3>
-      <MultiProgressBar segments={segments} />
+      <Dots segments={segments} />
     </div>
   );
 

@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './styles.css';
 
 const COLS_TO_ROWS_RATIO = 15,
-  SPACING = 4,
-  R = 5;
+  SPACING = 3,
+  R = 4;
 
 function Dots({segments}) {
   // find total number of dots
@@ -32,7 +32,7 @@ function Dots({segments}) {
     }));
 
   // calculate svg viewBox
-  const maxX = (2 * R + SPACING) * columns,
+  const maxX = (2 * R + SPACING) * Math.max(columns, COLS_TO_ROWS_RATIO),
     maxY = 2 * R + Math.floor(dots.length / columns) * (2 * R + SPACING),
     viewBox = `0 0 ${maxX} ${maxY}`;
 
