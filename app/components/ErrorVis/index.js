@@ -6,11 +6,11 @@ import { colors } from 'utils/constants';
 
 
 function ErrorVis({ report }) {
-  const items = [{percent: 100, color: colors.error}];
+  const segments = [{percent: 100, color: colors.error}];
   return (
     <div className={styles.errorVis}>
       <h3>{report.type} - error</h3>
-      <MultiProgressBar items={items} />
+      <MultiProgressBar segments={segments} />
     </div>
   );
 }

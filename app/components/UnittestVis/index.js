@@ -7,7 +7,7 @@ import { colors } from 'utils/constants';
 function UnittestVis({summary}) {
 
   const totalOk = 100 * (1 - summary.failed_tests / summary.total_tests);
-  const items = [
+  const segments = [
     {percent: totalOk, color: colors.ok},
     {percent: 100 - totalOk, color: colors.error}
   ];
@@ -15,7 +15,7 @@ function UnittestVis({summary}) {
   return (
     <div className={styles.unittestVis}>
       <h3>Total tests: <b>{summary.total_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
-      <MultiProgressBar items={items} />
+      <MultiProgressBar segments={segments} />
     </div>
   );
 }

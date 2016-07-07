@@ -7,7 +7,7 @@ import { colors } from 'utils/constants';
 function RadonMaintainabilityVis({summary}) {
 
   const total = summary.A + summary.B + summary.C;
-  const items = [
+  const segments = [
     {percent: summary.A * 100 / total, color: colors.ok},
     {percent: summary.B * 100 / total, color: colors.warning},
     {percent: summary.C * 100 / total, color: colors.error}
@@ -15,7 +15,7 @@ function RadonMaintainabilityVis({summary}) {
   return (
     <div className={styles.radonMaintainabilityVis}>
       <h3>Maintainability A: <b>{summary.A}</b> B: <b>{summary.B}</b> C: <b>{summary.C}</b></h3>
-      <MultiProgressBar items={items} />
+      <MultiProgressBar segments={segments} />
     </div>
   );
 

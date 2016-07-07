@@ -8,7 +8,7 @@ import { colors } from 'utils/constants';
 function Flake8Vis({summary}) {
 
   const totalOk = 100 * invertedArctanAsymptote(summary.total_errors);
-  const items = [
+  const segments = [
     {percent: totalOk, color: colors.ok},
     {percent: (100 - totalOk), color: colors.error}
   ];
@@ -16,7 +16,7 @@ function Flake8Vis({summary}) {
   return (
     <div className={styles.flake8Vis}>
       <h3>Linter errors: <b>{summary.total_errors}</b></h3>
-      <MultiProgressBar items={items} />
+      <MultiProgressBar segments={segments} />
     </div>
   );
 }

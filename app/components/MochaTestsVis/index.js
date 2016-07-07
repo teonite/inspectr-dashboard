@@ -7,7 +7,7 @@ import { colors } from 'utils/constants';
 function MochaTestsVis({summary}) {
 
   const totalOk = 100 * (1 - summary.failed_tests / summary.total_tests);
-  const items = [
+  const segments = [
     {percent: totalOk, color: colors.ok},
     {percent: 100 - totalOk, color: colors.error}
   ];
@@ -15,7 +15,7 @@ function MochaTestsVis({summary}) {
   return (
     <div className={styles.mochaTestsVis}>
       <h3>Total tests: <b>{summary.total_tests}</b> Passed: <b>{summary.passed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
-      <MultiProgressBar items={items} />
+      <MultiProgressBar segments={segments} />
     </div>
   );
 }
