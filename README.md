@@ -18,5 +18,5 @@ code quality tools. Those are the ones supported now, more under way:
 2. npm build
 
 # Running
-1. node_modules/.bin/hz serve --dev --debug --allow-unauthenticated --permissions no
+1. npm run horizon
 2. goto: http://localhost:8181
