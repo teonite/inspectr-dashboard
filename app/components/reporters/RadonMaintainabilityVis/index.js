@@ -11,9 +11,15 @@ function RadonMaintainabilityVis({summary}) {
     {items: summary.C, color: colors.error}
   ];
   return (
-    <div>
-      <h3>Maintainability A: <b>{summary.A}</b> B: <b>{summary.B}</b> C: <b>{summary.C}</b></h3>
-      <Dots segments={segments} />
+    <div className="chart">
+      <h3>Radon Maintainability</h3>
+      <Dots segments={segments}/>
+      <p className="test-result">
+        <span className="text-gray">Maintainability </span>
+        <span className="text-green">A: {summary.A} </span>
+        <span className="text-orange">B: {summary.B} </span>
+        <span className="text-red">C: {summary.B} </span>
+      </p>
     </div>
   );
 

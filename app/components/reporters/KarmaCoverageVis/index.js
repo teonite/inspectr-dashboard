@@ -4,11 +4,17 @@ import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
 
 function KarmaCoverageVis({summary}) {
-  const segments = [{percent: summary.lines_percent, color: colors.ok}];
+  const segments = [
+    {percent: summary.lines_percent, color: colors.ok},
+    {percent: 100 - summary.lines_percent, color: colors.error}
+  ];
   return (
-    <div>
-      <h3>Test Coverage (Lines): <b>{summary.lines_percent}%</b></h3>
-      <MultiProgressBar segments={segments} />
+    <div className="chart">
+      <h3>Karma Coverage</h3>
+      <MultiProgressBar segments={segments}/>
+      <p className="test-result">
+        <span className="text-gray">Coverage: {summary.lines_percent}%</span>
+      </p>
     </div>
   );
 }

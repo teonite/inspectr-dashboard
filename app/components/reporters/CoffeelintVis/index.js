@@ -11,13 +11,17 @@ function CoffeelintVis({summary}) {
   const segments = [
     {percent: totalOk, color: colors.ok},
     {percent: (100 - totalOk) * summary.total_warnings / summary.total_problems, color: colors.warning},
-    {percent: (100 - totalOk) * summary.total_errors  / summary.total_problems, color: colors.error}
+    {percent: (100 - totalOk) * summary.total_errors / summary.total_problems, color: colors.error}
   ];
 
   return (
-    <div>
-      <h3>Coffeelint warnings: <b>{summary.total_warnings}</b> Errors: <b>{summary.total_errors}</b></h3>
-      <MultiProgressBar segments={segments} />
+    <div className="chart">
+      <h3>Coffeelint</h3>
+      <MultiProgressBar segments={segments}/>
+      <p className="test-result">
+        <span className="text-orange">Warnings: {summary.total_warnings} </span>
+        <span className="text-red">Errors: {summary.total_errors} </span>
+      </p>
     </div>
   );
 }

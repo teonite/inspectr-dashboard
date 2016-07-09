@@ -13,9 +13,12 @@ function Flake8Vis({summary}) {
   ];
 
   return (
-    <div>
-      <h3>Linter errors: <b>{summary.total_errors}</b></h3>
-      <MultiProgressBar segments={segments} />
+    <div className="chart">
+      <h3>Flake8</h3>
+      <MultiProgressBar segments={segments}/>
+      <p className="test-result">
+        <span className="text-red">Errors: {summary.total_errors} </span>
+      </p>
     </div>
   );
 }

@@ -11,9 +11,13 @@ function MochaTestsVis({summary}) {
   ];
 
   return (
-    <div>
-      <h3>Total tests: <b>{summary.total_tests}</b> Passed: <b>{summary.passed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
-      <Dots segments={segments} />
+    <div className="chart">
+      <h3>Mocha Tests</h3>
+      <Dots segments={segments}/>
+      <p className="test-result">
+        <span className="text-green">Passed: {summary.passed_tests}</span>
+        <span className="text-red">Failed: {summary.failed_tests}</span>
+      </p>
     </div>
   );
 }
