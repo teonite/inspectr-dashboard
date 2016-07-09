@@ -2,17 +2,17 @@ import React from 'react';
 
 import ReportHeader from 'components/ReportHeader';
 
-import Flake8Vis from 'components/Flake8Vis';
-import UnittestVis from 'components/UnittestVis';
-import CoverageVis from 'components/CoverageVis';
-import EslintVis from 'components/EslintVis';
-import CoffeelintVis from 'components/CoffeelintVis';
-import JasmineTestsVis from 'components/JasmineTestsVis';
-import MochaTestsVis from 'components/MochaTestsVis';
-import KarmaCoverageVis from 'components/KarmaCoverageVis';
-import PytestVis from 'components/PytestVis';
-import ErrorVis from 'components/ErrorVis';
-import RadonMaintainabilityVis from 'components/RadonMaintainabilityVis';
+import Flake8Vis from 'components/reporters/Flake8Vis';
+import UnittestVis from 'components/reporters/UnittestVis';
+import CoverageVis from 'components/reporters/CoverageVis';
+import EslintVis from 'components/reporters/EslintVis';
+import CoffeelintVis from 'components/reporters/CoffeelintVis';
+import JasmineTestsVis from 'components/reporters/JasmineTestsVis';
+import MochaTestsVis from 'components/reporters/MochaTestsVis';
+import KarmaCoverageVis from 'components/reporters/KarmaCoverageVis';
+import PytestVis from 'components/reporters/PytestVis';
+import ErrorVis from 'components/reporters/ErrorVis';
+import RadonMaintainabilityVis from 'components/reporters/RadonMaintainabilityVis';
 
 function ReportBlock({ project }) {
   const chooseVis = (report, index) => {
