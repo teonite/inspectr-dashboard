@@ -6,7 +6,7 @@ import { rankProject } from 'utils/ranking';
 class DashboardPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   projectsSortedByRank() {
-    return this.props.projects.sort((p1, p2) => rankProject(p2) - rankProject(p1))
+    return this.props.projects.sort((p1, p2) => rankProject(p2, false) - rankProject(p1, false))
   }
 
   render() {

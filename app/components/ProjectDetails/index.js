@@ -1,12 +1,12 @@
 import React from 'react';
 
 import OutputDisplay from 'components/OutputDisplay';
-import ReportHeader from 'components/ReportHeader';
 
 function ProjectDetails({project}) {
+
   return (
     <div className="col-xs-12">
-      <ReportHeader project={project} />
+      <br/>
       {project.reports.map((report, index) => (
         <div key={index}>
           <h2>{report.type}</h2>

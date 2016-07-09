@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function DashboardHeader({projects}) {
+function DashboardHeader() {
   return (
     <div className="header-wrapper">
       <div className="row">
@@ -93,9 +93,5 @@ function DashboardHeader({projects}) {
     </div>
   );
 }
-
-DashboardHeader.propTypes = {
-  projects: React.PropTypes.array.isRequired,
-};
 
 export default DashboardHeader;

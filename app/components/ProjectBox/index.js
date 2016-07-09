@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import { rankProject, MAX_RANK } from 'utils/ranking';
 import Report from 'components/Report';
@@ -17,7 +18,7 @@ function ProjectBox({project, place}) {
         <span title={fullRank} className={rankClassName}>
           <span className="global-rank">{ place }</span>
         </span>
-          <h2>{project.project_name}</h2>
+          <h2><Link to={`/details/${project.id}`}>{project.project_name}</Link></h2>
           <p>Last update: TODO</p>
         </div>
 

@@ -29,12 +29,16 @@ const reportRanking = {
 
 export const MAX_RANK = 11;
 
-export const rankProject = (project) => {
+export const rankProject = (project, scale=true) => {
   // calculate rank: range <0, 1)
   const nullCheckedReports = project.reports.map(report => Object.assign({}, report, {summary: report.summary ? report.summary : {}}))
   const partials = nullCheckedReports.map(report => reportRanking[report['type']](report));
-  const rank = partials.map((p) => isNaN(p) ? 0 : p).reduce((a, b) => a + b, 0) / partials.length;
+  let rank = partials.map((p) => isNaN(p) ? 0 : p).reduce((a, b) => a + b, 0) / partials.length;
 
-  // scale it to range <0, MAX_RANK)
-  return Math.round((MAX_RANK - 1) * rank + 1);
+  if(scale) {
+    // scale it to range <0, MAX_RANK)
+    rank = Math.round((MAX_RANK - 1) * rank + 1);
+  }
+
+  return rank;
 };
