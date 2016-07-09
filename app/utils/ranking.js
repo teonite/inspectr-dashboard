@@ -27,7 +27,7 @@ const reportRanking = {
   'radon-maintainability': (report) => (1 * report.summary.A + 0.5 * report.summary.B + 0 * report.summary.C) / report.summary.total
 };
 
-export const MAX_RANK = 14;
+export const MAX_RANK = 11;
 
 export const rankProject = (project) => {
   // calculate rank: range <0, 1)
