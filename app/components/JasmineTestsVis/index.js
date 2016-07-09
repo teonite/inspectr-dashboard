@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -12,7 +11,7 @@ function JasmineTestsVis({summary}) {
   ];
 
   return (
-    <div className={styles.jasmineTestsVis}>
+    <div>
       <h3>Total tests: <b>{summary.total_tests}</b> Executed: <b>{summary.executed_tests}</b> Failed: <b>{summary.failed_tests}</b></h3>
       <Dots segments={segments} />
     </div>

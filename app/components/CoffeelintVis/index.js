@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import { colors } from 'utils/constants';
 
 import { invertedArctanAsymptote } from 'utils/ranking';
@@ -16,7 +15,7 @@ function CoffeelintVis({summary}) {
   ];
 
   return (
-    <div className={styles.coffeelintVis}>
+    <div>
       <h3>Coffeelint warnings: <b>{summary.total_warnings}</b> Errors: <b>{summary.total_errors}</b></h3>
       <MultiProgressBar segments={segments} />
     </div>

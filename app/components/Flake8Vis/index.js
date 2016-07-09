@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
@@ -14,7 +13,7 @@ function Flake8Vis({summary}) {
   ];
 
   return (
-    <div className={styles.flake8Vis}>
+    <div>
       <h3>Linter errors: <b>{summary.total_errors}</b></h3>
       <MultiProgressBar segments={segments} />
     </div>

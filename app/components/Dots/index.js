@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 
 const COLS_TO_ROWS_RATIO = 15,
   SPACING = 3,
@@ -37,7 +36,7 @@ function Dots({segments}) {
     viewBox = `0 0 ${maxX} ${maxY}`;
 
   return (
-    <svg className={styles.dots} viewBox={viewBox}>
+    <svg viewBox={viewBox}>
       {dots.map((dot, index) => <circle cx={dot.cx} cy={dot.cy} fill={dot.color} r={dot.r} key={index} /> )}
     </svg>
   );

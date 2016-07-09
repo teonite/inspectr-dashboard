@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -12,7 +11,7 @@ function RadonMaintainabilityVis({summary}) {
     {items: summary.C, color: colors.error}
   ];
   return (
-    <div className={styles.radonMaintainabilityVis}>
+    <div>
       <h3>Maintainability A: <b>{summary.A}</b> B: <b>{summary.B}</b> C: <b>{summary.C}</b></h3>
       <Dots segments={segments} />
     </div>

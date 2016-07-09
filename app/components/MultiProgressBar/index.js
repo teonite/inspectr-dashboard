@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
-
 
 function MultiProgressBar({segments, width=2, fill='#D9D9D9'}) {
 
@@ -28,7 +26,7 @@ function MultiProgressBar({segments, width=2, fill='#D9D9D9'}) {
 
   const viewBoxString = `0 0 100 ${width}`;
   return (
-    <svg className={styles.multiProgressBar} viewBox={viewBoxString}>
+    <svg viewBox={viewBoxString}>
       {segmentsMapped.map((segment, index) =>
         <line key={index}
           x1={segment.segmentStart}

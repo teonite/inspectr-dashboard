@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
@@ -13,7 +12,7 @@ function EslintVis({ summary }) {
     {percent: (100 - totalOk) * summary.total_errors  / summary.total_problems, color: colors.error}
   ];
   return (
-    <div className={styles.eslintVis}>
+    <div>
       <h3>Eslint warnings: <b>{summary.total_warnings}</b> Errors: <b>{summary.total_errors}</b></h3>
       <MultiProgressBar segments={segments} />
     </div>
