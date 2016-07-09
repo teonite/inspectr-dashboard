@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styles from './styles.css';
 import { rankProject, MAX_RANK } from 'utils/ranking';
 
 
@@ -44,7 +43,7 @@ function RankVis({ project }) {
 
   return (
     <span>
-      <img className={styles.rankImage} title={title} src={rankImages[projectRank]}></img>
+      <img title={title} src={rankImages[projectRank]}></img>
     </span>
   );
 }
