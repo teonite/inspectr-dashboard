@@ -19,9 +19,7 @@ export default class App extends React.Component { // eslint-disable-line react/
 
     return (
       <div>
-        <div className="container">
           {this.props.children}
-        </div>
       </div>
     );
   }

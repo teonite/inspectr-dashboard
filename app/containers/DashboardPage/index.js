@@ -1,6 +1,6 @@
 import React from 'react';
 import { subscribe } from 'horizon-react';
-import ReportBlock from 'containers/ReportBlock';
+import Dashboard from 'components/Dashboard';
 import { rankProject } from 'utils/ranking';
 
 class DashboardPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -11,9 +11,7 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
 
   render() {
     return (
-      <div className="row">
-        {this.projectsSortedByRank().map((project, index) => <ReportBlock key={index} project={project}/>)}
-      </div>
+      <Dashboard projects={this.projectsSortedByRank()} />
     );
   }
 }
