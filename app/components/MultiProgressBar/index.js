@@ -5,7 +5,9 @@ import styles from './styles.css';
 
 function MultiProgressBar({segments, width=2, fill='#D9D9D9'}) {
 
-  let segmentsMapped = segments.map((segment, index) => ({
+  let segmentsMapped = segments
+    .filter(segment => !isNaN(segment.percent))  // filter out NaNs (total problems = 0)
+    .map((segment, index) => ({
       segmentStart: segments.map(s => s.percent).slice(0, index).reduce((i1, i2) => parseFloat(i1) + parseFloat(i2), 0),
       segmentStop: segments.map(s => s.percent).slice(0, index).reduce((i1, i2) => parseFloat(i1) + parseFloat(i2), 0) + parseFloat(segment.percent),
       color: segment.color
@@ -25,7 +27,6 @@ function MultiProgressBar({segments, width=2, fill='#D9D9D9'}) {
   segmentsMapped = segmentsMapped.reverse();
 
   const viewBoxString = `0 0 100 ${width}`;
-
   return (
     <svg className={styles.multiProgressBar} viewBox={viewBoxString}>
       {segmentsMapped.map((segment, index) =>

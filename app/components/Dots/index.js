@@ -38,7 +38,7 @@ function Dots({segments}) {
 
   return (
     <svg className={styles.dots} viewBox={viewBox}>
-      {dots.map(dot => <circle cx={dot.cx} cy={dot.cy} fill={dot.color} r={dot.r} /> )}
+      {dots.map((dot, index) => <circle cx={dot.cx} cy={dot.cy} fill={dot.color} r={dot.r} key={index} /> )}
     </svg>
   );
 }
