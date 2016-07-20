@@ -1,7 +1,9 @@
 import React from 'react';
 
+import MiniProjectBox from 'components/MiniProjectBox';
 
-function DashboardHeader() {
+
+function DashboardHeader({projects}) {
   return (
     <div className="header-wrapper">
       <div className="row">
@@ -16,33 +18,9 @@ function DashboardHeader() {
                   <span className="rect-vertical"></span>
                 </div>
               </li>
-              <li>
-                <div className="header">
-                                <span className="rank rank-badge-11">
-                                    <span className="global-rank">1</span>
-                                </span>
-                  <span className="rect"></span>
-                  <h3>Inspectr CLI</h3>
-                </div>
-              </li>
-              <li>
-                <div className="header">
-                                <span className="rank rank-badge-10">
-                                    <span className="global-rank">2</span>
-                                </span>
-                  <span className="rect"></span>
-                  <h3>TEONITE Backend</h3>
-                </div>
-              </li>
-              <li>
-                <div className="header">
-                                <span className="rank rank-badge-9">
-                                    <span className="global-rank">3</span>
-                                </span>
-                  <span className="rect"></span>
-                  <h3>BCA Frontend</h3>
-                </div>
-              </li>
+              {projects.slice(0, 2).map((project, index) =>
+                <MiniProjectBox project={project} place={index + 1}></MiniProjectBox>
+              )}
             </ul>
           </div>
         </div>
@@ -93,5 +71,9 @@ function DashboardHeader() {
     </div>
   );
 }
+
+DashboardHeader.propTypes = {
+  projects: React.PropTypes.array.isRequired,
+};
 
 export default DashboardHeader;
