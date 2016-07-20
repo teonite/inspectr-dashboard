@@ -15,7 +15,7 @@ code quality tools. Those are the ones supported now, more under way:
 # Installation
 
 1. npm install
-2. npm build
+2. npm run build
 
 # Running
 1. npm run horizon
