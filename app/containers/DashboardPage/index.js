@@ -10,20 +10,28 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
   }
 
   render() {
+    const page = this.props.page ? parseInt(this.props.page) : 1;
+
     return (
-      <Dashboard projects={this.projectsSortedByRank()} />
+      <Dashboard projects={this.projectsSortedByRank()} page={page} />
     );
   }
 }
 
 DashboardPage.propTypes = {
-  projects: React.PropTypes.array.isRequired
+  projects: React.PropTypes.array.isRequired,
+  page: React.PropTypes.string,
 };
 
 const mapDataToProps = {
   projects: (hz) => hz('reports')
 };
 
+const mapStateToProps = (state, props) => ({
+  page: props.location.query.page
+});
+
 export default subscribe({
-  mapDataToProps
+  mapDataToProps,
+  mapStateToProps
 })(DashboardPage);
