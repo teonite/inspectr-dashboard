@@ -21,7 +21,7 @@ function DashboardHeader({projects, page, pageSize}) {
                   <span className="rect-vertical"></span>
                 </div>
               </li>
-              {projects.slice(0, 2).map((project, index) =>
+              {projects.slice(0, 3).map((project, index) =>
                 <MiniProjectBox project={project} place={index + 1} key={index}></MiniProjectBox>
               )}
             </ul>
@@ -41,14 +41,14 @@ function DashboardHeader({projects, page, pageSize}) {
                 <div className="header">
                   <span className="rank rank-badge-8"></span>
                   <span className="rect"></span>
-                  <h3>Inspectr CLI</h3>
+                  <h3>AVERAGE PROJECT RANK</h3>
                 </div>
               </li>
               <li>
                 <div className="header">
                   <span className="rank">64</span>
                   <span className="rect"></span>
-                  <h3>TEONITE Backend</h3>
+                  <h3>ALL PROJECTS</h3>
                 </div>
               </li>
             </ul>
