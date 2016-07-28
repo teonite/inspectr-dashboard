@@ -4,19 +4,20 @@ import DashboardHeader from 'components/DashboardHeader';
 import DashboardBody from 'components/DashboardBody';
 
 
-function Dashboard({projects, page, pageSize}) {
+function Dashboard({projects, topProjects, maxPage, page}) {
   return (
     <div>
-      <DashboardHeader projects={projects} page={page} pageSize={pageSize} />
-      <DashboardBody projects={projects} page={page} pageSize={pageSize} />
+      <DashboardHeader page={page} maxPage={maxPage} topProjects={topProjects} />
+      <DashboardBody projects={projects} />
     </div>
   );
 }
 
 Dashboard.propTypes = {
   projects: React.PropTypes.array.isRequired,
+  topProjects: React.PropTypes.array.isRequired,
+  maxPage: React.PropTypes.number.isRequired,
   page: React.PropTypes.number.isRequired,
-  pageSize: React.PropTypes.number.isRequired,
 };
 
 export default Dashboard;

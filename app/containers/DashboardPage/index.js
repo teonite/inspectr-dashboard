@@ -2,56 +2,39 @@ import React from 'react';
 import { subscribe } from 'horizon-react';
 import Dashboard from 'components/Dashboard';
 import { rankProject } from 'utils/ranking';
-import { browserHistory } from 'react-router';
+import rotatePage from 'actions';
+import {PAGE_SIZE, ROTATION_INTERVAL} from 'utils/constants';
+
+
+function getPage(props){
+  return props.location.query.page ? parseInt(props.location.query.page) : 1
+}
+
 
 class DashboardPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
-
-  constructor(){
-    super();
-    this.pageSize = 1;
-    this.rotationInterval = 5000;
-  }
-
   componentDidMount(){
-    const maxPage = this.getMaxPage(this.props.projects.length);
-    const page = this.getPage(this.props.page);
+    const {page, projects} = this.props;
+    const maxPage = this.getMaxPage(projects.length);
 
     this.carousel = setTimeout(() => {
-      this.rotatePage(page, maxPage);
-    }, this.rotationInterval);
-  }
-
-  getMaxPage(projectsLength){
-    return Math.ceil(projectsLength / this.pageSize);
-  }
-
-  getPage(page){
-    return page ? parseInt(page) : 1
-  }
-
-  rotatePage(page, maxPage){
-    if (maxPage == 1)
-      return;
-
-    if (page == maxPage)
-      browserHistory.push('?page=1');
-    else
-      browserHistory.push(`?page=${page + 1}`);
+      rotatePage(page, maxPage);
+    }, ROTATION_INTERVAL);
   }
 
   componentWillReceiveProps(nextProps){
-    const maxPage = this.getMaxPage(nextProps.projects.length);
-    const page = this.getPage(nextProps.page);
+    const {projects, page} = nextProps;
+    const maxPage = this.getMaxPage(projects.length);
 
-    const oldMaxPage = this.getMaxPage(this.props.projects.length);
-    const oldPage = this.getPage(this.props.page);
+    const oldProjects = this.props.projects;
+    const oldPage = this.props.page;
+    const oldMaxPage = this.getMaxPage(oldProjects.length);
 
     if (page != oldPage || maxPage != oldMaxPage ){
       clearTimeout(this.carousel);
       this.carousel = setTimeout(() => {
-        this.rotatePage(page, maxPage);
-      }, this.rotationInterval);
+        rotatePage(page, maxPage);
+      }, ROTATION_INTERVAL);
     }
   }
 
@@ -59,22 +42,33 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
     clearTimeout(this.carousel);
   }
 
-  render() {
-    const page = this.getPage(this.props.page);
-
-    return (
-      <Dashboard projects={this.projectsSortedByRank()} page={page} pageSize={this.pageSize} />
-    );
+  get projects(){
+    const sortedProjects = this.props.projects.sort((p1, p2) => rankProject(p2, false) - rankProject(p1, false));
+    const offset = (this.props.page - 1) * PAGE_SIZE;
+    return sortedProjects.slice(offset, offset + PAGE_SIZE);
   }
 
-  projectsSortedByRank(){
-    return this.props.projects.sort((p1, p2) => rankProject(p2, false) - rankProject(p1, false))
+  get topProjects(){
+    return this.props.projects.slice(0, 3);
+  }
+
+  getMaxPage(projectsLength){
+    return Math.ceil(projectsLength / PAGE_SIZE);
+  }
+
+  render() {
+    const {projects, ...remainingProps} = this.props;
+
+    return (
+      <Dashboard projects={this.projects} topProjects={this.topProjects} maxPage={this.getMaxPage(projects.length)}
+                 {...remainingProps} />
+    );
   }
 }
 
 DashboardPage.propTypes = {
   projects: React.PropTypes.array.isRequired,
-  page: React.PropTypes.string,
+  page: React.PropTypes.number.isRequired,
 };
 
 const mapDataToProps = {
@@ -82,7 +76,7 @@ const mapDataToProps = {
 };
 
 const mapStateToProps = (state, props) => ({
-  page: props.location.query.page
+  page: getPage(props),
 });
 
 export default subscribe({

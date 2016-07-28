@@ -4,8 +4,7 @@ import MiniProjectBox from 'components/MiniProjectBox';
 import PaginationNavigation from 'components/PaginationNavigation';
 
 
-function DashboardHeader({projects, page, pageSize}) {
-  const maxPage = Math.ceil(projects.length / pageSize);
+function DashboardHeader({topProjects, page, maxPage}) {
 
   return (
     <div className="header-wrapper">
@@ -21,7 +20,7 @@ function DashboardHeader({projects, page, pageSize}) {
                   <span className="rect-vertical"></span>
                 </div>
               </li>
-              {projects.slice(0, 3).map((project, index) =>
+              {topProjects.map((project, index) =>
                 <MiniProjectBox project={project} place={index + 1} key={index}></MiniProjectBox>
               )}
             </ul>
@@ -60,9 +59,9 @@ function DashboardHeader({projects, page, pageSize}) {
 }
 
 DashboardHeader.propTypes = {
-  projects: React.PropTypes.array.isRequired,
+  topProjects: React.PropTypes.array.isRequired,
   page: React.PropTypes.number.isRequired,
-  pageSize: React.PropTypes.number.isRequired,
+  maxPage: React.PropTypes.number.isRequired,
 };
 
 export default DashboardHeader;
