@@ -9,7 +9,7 @@ function PaginationNavigation({page, maxPage}) {
         <Link to={`/?page=${page - 1}`} aria-label="Previous">
           <span aria-hidden="true">&larr;</span>
         </Link>
-      </li> : <li><span>&larr;</span></li>;
+      </li> : <li><a href="#">&larr;</a></li>;
 
   const prepreviousLinkNumber = page == maxPage && maxPage > 2 ?
       <li><Link to={`/?page=${page - 2}`}>{page - 2}</Link></li> : '';
@@ -28,7 +28,7 @@ function PaginationNavigation({page, maxPage}) {
         <Link to={`/?page=${page + 1}`} aria-label="Next">
           <span aria-hidden="true">&rarr;</span>
         </Link>
-      </li> : <li><span>&rarr;</span></li>;
+      </li> : <li><a href="#">&rarr;</a></li>;
 
   return (
     <ul className="pagination pagination-sm">
@@ -39,6 +39,11 @@ function PaginationNavigation({page, maxPage}) {
       {nextLinkNumber}
       {postnextLinkNumber}
       {nextLink}
+      <li>
+        <button className="btn btn-primary" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">
+          <i className="glyphicon glyphicon-pause"></i>
+        </button>
+      </li>
     </ul>
   );
 }

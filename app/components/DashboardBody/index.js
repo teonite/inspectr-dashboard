@@ -8,7 +8,7 @@ function DashboardBody({projects}) {
   return (
     <div className="dashboard-wrapper">
       <div className="row">
-        {projects.map((project, index) => <ProjectBox project={project} place={index + 1} key={index} />)}
+        {projects.map((project, index) => <ProjectBox project={project} key={index} />)}
       </div>
     </div>
   );

@@ -1,53 +1,39 @@
 import React from 'react';
 
-import MiniProjectBox from 'components/MiniProjectBox';
-import PaginationNavigation from 'components/PaginationNavigation';
+import TopProjects from 'components/TopProjects';
+import LastUpdatedProject from 'components/LastUpdatedProject';
+import AllProjects from 'components/AllProjects';
 
 
-function DashboardHeader({topProjects, page, maxPage}) {
+function DashboardHeader(props) {
+  const {topProjects, lastUpdatedProject, projectsCount} = props;
 
   return (
     <div className="header-wrapper">
       <div className="row">
-        <div className="col-md-5 left-col">
-          <div className="top-projects">
-            <ul>
-              <li>
-                <div className="header-title">
-                  <h2>Top projects:</h2>
-                  <span className="rect top"></span>
-                  <span className="rect bottom"></span>
-                  <span className="rect-vertical"></span>
-                </div>
-              </li>
-              {topProjects.map((project, index) =>
-                <MiniProjectBox project={project} place={index + 1} key={index}></MiniProjectBox>
-              )}
-            </ul>
-          </div>
+        <div className="col-md-12 col-lg-2 col-lg-push-5 p-0">
+            <div className="logo">
+                <span className="rect"></span>
+                <h1>INSPECTR</h1>
+            </div>
         </div>
-        <div className="col-md-2 p-0">
-          <div className="logo">
-            <span className="rect"></span>
-            <h1>INSPECTR</h1>
-            <PaginationNavigation page={page} maxPage={maxPage} />
-          </div>
+        <div className="col-md-12 col-lg-5 col-lg-pull-2 left-col">
+          <TopProjects topProjects={topProjects} />
         </div>
-        <div className="col-md-5 right-col">
+        <div className="col-md-12 col-lg-5 right-col">
           <div className="top-projects stats">
             <ul>
               <li>
-                <div className="header">
-                  <span className="rank rank-badge-8"></span>
-                  <span className="rect"></span>
-                  <h3>AVERAGE PROJECT RANK</h3>
-                </div>
+                <LastUpdatedProject project={lastUpdatedProject} />
               </li>
               <li>
-                <div className="header">
-                  <span className="rank">64</span>
+                <AllProjects projectsCount={projectsCount} />
+              </li>
+              <li>
+                <div className="header search">
+                  <a href="#" className="rank"><i className="glyphicon glyphicon-search"></i></a>
                   <span className="rect"></span>
-                  <h3>ALL PROJECTS</h3>
+                  <h3>Search</h3>
                 </div>
               </li>
             </ul>
@@ -59,9 +45,13 @@ function DashboardHeader({topProjects, page, maxPage}) {
 }
 
 DashboardHeader.propTypes = {
-  topProjects: React.PropTypes.array.isRequired,
-  page: React.PropTypes.number.isRequired,
-  maxPage: React.PropTypes.number.isRequired,
+  topProjects: React.PropTypes.array,
+  page: React.PropTypes.number,
+  maxPage: React.PropTypes.number,
+  lastUpdatedProject: React.PropTypes.object,
+  projectsCount: React.PropTypes.number,
+  carouselActive: React.PropTypes.bool,
+  carouselToggleOnClick: React.PropTypes.func,
 };
 
 export default DashboardHeader;
