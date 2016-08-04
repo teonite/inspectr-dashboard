@@ -12,14 +12,15 @@ function UnittestVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Python Unittests</h3>
+      <h3>
+        Python Unittests
+        <span className="pull-right">
+          <span className="text-green">Passed: {summary.passed_tests} </span>
+          <span className="text-red">Failed: {summary.failed_tests} </span>
+        </span>
+      </h3>
       <Dots segments={segments}/>
-      <p className="test-result">
-        <span className="text-green">Passed: {summary.passed_tests} </span>
-        <span className="text-red">Failed: {summary.failed_tests} </span>
-      </p>
     </div>
-
   );
 }
 

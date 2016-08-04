@@ -22,14 +22,14 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
   }
 
   componentWillReceiveProps(nextProps){
-    const {projects, page} = nextProps;
+    const {projects, page, carouselActive} = nextProps;
     const maxPage = this.getMaxPage(projects.length);
 
     const oldProjects = this.props.projects;
     const oldPage = this.props.page;
     const oldMaxPage = this.getMaxPage(oldProjects.length);
 
-    if (page != oldPage || maxPage != oldMaxPage ){
+    if ((page != oldPage || maxPage != oldMaxPage) && carouselActive){
       clearTimeout(this.carousel);
       this.carousel = setTimeout(() => {
         rotatePage(page, maxPage);
@@ -64,8 +64,22 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
     return Math.ceil(projectsLength / PAGE_SIZE);
   }
 
+  toggleCarousel(){
+    const {projects, page, carouselActive} = this.props;
+    const maxPage = this.getMaxPage(projects.length);
+
+    if (carouselActive)
+      clearTimeout(this.carousel);
+    else
+      this.carousel = setTimeout(() => {
+        rotatePage(page, maxPage);
+      }, ROTATION_INTERVAL);
+
+    this.props.toggleCarousel();
+  }
+
   render() {
-    const {projects, ...remainingProps} = this.props;
+    const {projects, toggleCarousel, ...remainingProps} = this.props;
 
     return (
       <Dashboard projects={this.projects}
@@ -73,7 +87,7 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
                  maxPage={this.getMaxPage(projects.length)}
                  lastUpdatedProject={this.lastUpdatedProject}
                  projectsCount={this.projectsCount}
-                 carouselToggleOnClick={() => this.props.toggleCarousel()}
+                 carouselToggleOnClick={() => this.toggleCarousel()}
                  {...remainingProps} />
     );
   }
@@ -84,6 +98,7 @@ DashboardPage.propTypes = {
   projects: React.PropTypes.array.isRequired,
   page: React.PropTypes.number.isRequired,
   toggleCarousel: React.PropTypes.func.isRequired,
+  carouselActive: React.PropTypes.bool.isRequired,
 };
 
 const mapDataToProps = {
@@ -92,11 +107,12 @@ const mapDataToProps = {
 
 const mapStateToProps = (state, props) => ({
   page: getPage(props),
-  carouselActive: state.carouselActive,
+  carouselActive: state.get('dashboard').carouselActive,
 });
 
 const mapDispatchToProps = {
   toggleCarousel,
+  rotatePage,
 };
 
 export default subscribe({

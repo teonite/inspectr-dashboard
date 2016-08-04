@@ -18,7 +18,7 @@ function toggleCarouselAction(){
 }
 
 export function toggleCarousel(){
-  return dispatch => {
+  return (dispatch) => {
     dispatch(toggleCarouselAction());
   };
 }

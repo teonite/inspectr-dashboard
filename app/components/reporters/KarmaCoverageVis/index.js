@@ -10,11 +10,13 @@ function KarmaCoverageVis({summary}) {
   ];
   return (
     <div className="chart">
-      <h3>Karma Coverage</h3>
+      <h3>
+        Karma Coverage
+        <span className="pull-right">
+          <span className="text-gray">Coverage: {summary.lines_percent}%</span>
+        </span>
+      </h3>
       <MultiProgressBar segments={segments}/>
-      <p className="test-result">
-        <span className="text-gray">Coverage: {summary.lines_percent}%</span>
-      </p>
     </div>
   );
 }

@@ -13,12 +13,14 @@ function EslintVis({ summary }) {
   ];
   return (
     <div className="chart">
-      <h3>Eslint</h3>
+      <h3>
+        Eslint
+        <span className="pull-right">
+          <span className="text-orange">Warnings: {summary.total_warnings} </span>
+          <span className="text-red">Errors: {summary.total_errors} </span>
+        </span>
+      </h3>
       <MultiProgressBar segments={segments}/>
-      <p className="test-result">
-        <span className="text-orange">Warnings: {summary.total_warnings} </span>
-        <span className="text-red">Errors: {summary.total_errors} </span>
-      </p>
     </div>
   );
 }
