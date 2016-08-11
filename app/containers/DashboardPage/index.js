@@ -16,9 +16,11 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
     const {page, projects} = this.props;
     const maxPage = this.getMaxPage(projects.length);
 
-    this.carousel = setTimeout(() => {
-      rotatePage(page, maxPage);
-    }, ROTATION_INTERVAL);
+    if(this.props.carouselActive) {
+      this.carousel = setTimeout(() => {
+        rotatePage(page, maxPage);
+      }, ROTATION_INTERVAL);
+    }
   }
 
   componentWillReceiveProps(nextProps){
