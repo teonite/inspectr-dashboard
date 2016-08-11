@@ -5,7 +5,7 @@ import { rankProject, MAX_RANK } from 'utils/ranking';
 import Report from 'components/Report';
 
 
-function ProjectBox({project, place}) {
+function ProjectBox({project}) {
 
   const projectRank = rankProject(project);
   const rankClassName = `rank rank-badge-${projectRank}`;
@@ -14,14 +14,14 @@ function ProjectBox({project, place}) {
   const formatDate = (date) => date.toLocaleString('pl-PL');
 
   return (
-    <div className="col-md-3 col-xs-6">
+    <div className="col-lg-3 col-md-6 col-xs-12">
       <div className="project-box">
         <div className="header">
         <span title={fullRank} className={rankClassName}>
-          <span className="global-rank">{ place }</span>
+          <span className="global-rank">{ project.rankPlace }</span>
         </span>
           <h2><Link to={`/details/${project.id}`}>{project.project_name}</Link></h2>
-          <p>Last update: {formatDate(project.time_created)}</p>
+          <p className="subtext">Last update: {formatDate(project.time_created)}</p>
         </div>
 
         {project.reports.map((report, index) => <Report report={report} key={index}/>)}
@@ -33,7 +33,6 @@ function ProjectBox({project, place}) {
 
 ProjectBox.propTypes = {
   project: React.PropTypes.object.isRequired,
-  place: React.PropTypes.number.isRequired,
 };
 
 export default ProjectBox;

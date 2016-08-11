@@ -3,3 +3,6 @@ export const colors = {
   warning: '#F19240',
   error: '#F75354'
 };
+
+export const PAGE_SIZE = 1;
+export const ROTATION_INTERVAL = 5000;

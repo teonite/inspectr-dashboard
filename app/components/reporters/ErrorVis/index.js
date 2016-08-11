@@ -8,11 +8,13 @@ function ErrorVis({ report }) {
   const segments = [{percent: 100, color: colors.error}];
   return (
     <div className="chart">
-      <h3>{ report.type }</h3>
+      <h3>
+        { report.type }
+        <span className="pull-right">
+          <span className="text-red">REPORTER FAILED</span>
+        </span>
+        </h3>
       <MultiProgressBar segments={segments}/>
-      <p className="test-result">
-        <span className="text-red">REPORTER FAILED</span>
-      </p>
     </div>
   );
 }

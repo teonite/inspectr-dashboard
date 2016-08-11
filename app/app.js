@@ -31,7 +31,7 @@ import 'css/style.css';
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const initialState = {};
-const store = configureStore(initialState, browserHistory);
+const store = configureStore(initialState, browserHistory, window.devToolsExtension && window.devToolsExtension());
 
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState

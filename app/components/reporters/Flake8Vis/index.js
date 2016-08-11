@@ -14,11 +14,13 @@ function Flake8Vis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Flake8</h3>
+      <h3>
+        Flake8
+        <span className="pull-right">
+          <span className="text-red">Errors: {summary.total_errors} </span>
+        </span>
+      </h3>
       <MultiProgressBar segments={segments}/>
-      <p className="test-result">
-        <span className="text-red">Errors: {summary.total_errors} </span>
-      </p>
     </div>
   );
 }

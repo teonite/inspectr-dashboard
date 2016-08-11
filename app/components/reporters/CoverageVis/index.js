@@ -10,11 +10,13 @@ function CoverageVis({ summary }) {
   ];
   return (
     <div className="chart">
-      <h3>Coverage.py</h3>
+      <h3>
+        Coverage.py
+        <span className="pull-right">
+          <span className="text-gray">Coverage: {summary.coverage_percent}%</span>
+        </span>
+      </h3>
       <MultiProgressBar segments={segments}/>
-      <p className="test-result">
-        <span className="text-gray">Coverage: {summary.coverage_percent}%</span>
-      </p>
     </div>
   );
 }
