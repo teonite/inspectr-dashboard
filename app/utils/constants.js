@@ -4,5 +4,5 @@ export const colors = {
   error: '#F75354'
 };
 
-export const PAGE_SIZE = 1;
+export const PAGE_SIZE = 8;
 export const ROTATION_INTERVAL = 5000;
