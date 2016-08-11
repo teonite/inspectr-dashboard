@@ -16,7 +16,7 @@ function JasmineTestsVis({summary}) {
         Jasmine Tests
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
-          <span className="text-red">Failed: {summary.failed_tests} </span>
+          <span className="text-red">Failed: {summary.failed_tests}</span>
         </span>
       </h3>
       <Dots segments={segments}/>

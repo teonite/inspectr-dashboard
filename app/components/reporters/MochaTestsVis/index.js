@@ -15,7 +15,7 @@ function MochaTestsVis({summary}) {
       <h3>
         Mocha Tests
         <span className="pull-right">
-          <span className="text-green">Passed: {summary.passed_tests}</span>
+          <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>
         </span>
       </h3>

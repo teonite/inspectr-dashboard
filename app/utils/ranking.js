@@ -24,7 +24,15 @@ const reportRanking = {
   'karma-coverage': (report) => report.summary.lines_percent / 100,
   'pytest': (report) => (1 - report.summary.failed_tests / (report.summary.failed_tests + report.summary.passed_tests)),
   'coverage-pytest': (report) => (1 - report.summary.failed_tests / (report.summary.failed_tests + report.summary.passed_tests)),
-  'radon-maintainability': (report) => (1 * report.summary.A + 0.5 * report.summary.B + 0 * report.summary.C) / report.summary.total
+  'radon-maintainability': (report) => (1 * report.summary.A + 0.5 * report.summary.B + 0 * report.summary.C) / report.summary.total,
+  'radon-cyclomatic-complexity': (report) => (
+    1 * report.summary.A +
+    0.5 * report.summary.B +
+    0.4 * report.summary.C +
+    0.2 * report.summary.D +
+    0.1 * report.summary.E +
+    0 * report.summary.F
+  ) / report.summary.total
 };
 
 export const MAX_RANK = 11;

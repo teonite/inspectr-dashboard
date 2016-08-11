@@ -10,6 +10,7 @@ function RadonMaintainabilityVis({summary}) {
     {items: summary.B, color: colors.warning},
     {items: summary.C, color: colors.error}
   ];
+
   return (
     <div className="chart">
       <h3>Radon Maintainability</h3>
@@ -18,7 +19,7 @@ function RadonMaintainabilityVis({summary}) {
         <span className="text-gray">Maintainability </span>
         <span className="text-green">A: {summary.A} </span>
         <span className="text-orange">B: {summary.B} </span>
-        <span className="text-red">C: {summary.B} </span>
+        <span className="text-red">C: {summary.C}</span>
       </p>
     </div>
   );
@@ -28,6 +29,5 @@ function RadonMaintainabilityVis({summary}) {
 RadonMaintainabilityVis.propTypes = {
   summary: React.PropTypes.object.isRequired
 };
-
 
 export default RadonMaintainabilityVis;

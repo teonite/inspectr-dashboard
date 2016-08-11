@@ -20,7 +20,7 @@ function CoffeelintVis({summary}) {
         Coffeelint
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>
-          <span className="text-red">Errors: {summary.total_errors} </span>
+          <span className="text-red">Errors: {summary.total_errors}</span>
         </span>
       </h3>
       <MultiProgressBar segments={segments}/>
