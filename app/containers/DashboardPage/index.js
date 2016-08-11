@@ -79,7 +79,7 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
   }
 
   render() {
-    const {projects, toggleCarousel, ...remainingProps} = this.props;
+    const {projects, toggleCarousel, ...remainingProps} = this.props; // eslint-disable-line no-unused-vars
 
     return (
       <Dashboard projects={this.projects}
