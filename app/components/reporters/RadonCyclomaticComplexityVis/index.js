@@ -19,7 +19,7 @@ function RadonCyclomaticComplexityVis({summary}) {
       <h3>Radon Cyclomatic Complexity</h3>
       <Dots segments={segments}/>
       <p className="test-result">
-        <span className="text-gray">Maintainability </span>
+        <span className="text-gray">Complexity </span>
         <span className="text-green">A: {summary.A} </span>
         <span className="text-green">B: {summary.B} </span>
         <span className="text-orange">C: {summary.C} </span>
