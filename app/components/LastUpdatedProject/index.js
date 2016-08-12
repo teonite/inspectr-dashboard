@@ -16,8 +16,9 @@ function LastUpdatedProject({project}) {
       <span className={rankClassName}></span>
       <span className="rect"></span>
       <h3>
-        <span className="block subtext">{formatDate(project.time_created)}</span>
+        <span className="block subtext">Last Update</span>
         <a href="#">{project.project_name}</a>
+        <span className="block subtext">{formatDate(project.time_created)}</span>
       </h3>
     </div>
   );

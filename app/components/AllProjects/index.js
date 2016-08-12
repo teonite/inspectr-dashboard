@@ -6,7 +6,7 @@ function AllProjects({projectsCount}) {
     <div className="header">
       <span className="rank">{projectsCount}</span>
       <span className="rect"></span>
-      <h3>ALL PROJECTS</h3>
+      <h3>Projects</h3>
     </div>
   );
 }
