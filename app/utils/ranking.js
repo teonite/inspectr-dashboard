@@ -32,7 +32,8 @@ const reportRanking = {
     0.2 * report.summary.D +
     0.1 * report.summary.E +
     0 * report.summary.F
-  ) / report.summary.total
+  ) / report.summary.total,
+  'tslint': (report) => invertedArctanAsymptote(report.summary.total_errors),
 };
 
 export const MAX_RANK = 11;
