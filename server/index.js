@@ -18,13 +18,24 @@ const app = setup(express(), {
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
-app.use('/horizon', proxy({target: 'http://localhost:8181', changeOrigin: true}));
+const httpProxy = proxy({
+  target: 'http://localhost:8181', // target host
+  changeOrigin: true,               // needed for virtual hosted sites
+  ws: true,                         // proxy websockets
+  pathRewrite: {},
+  router: {
+    // when request.headers.host == 'dev.localhost:3000',
+    // override target 'http://www.example.org' to 'http://localhost:8000'
+    // 'dev.localhost:3000' : 'http://localhost:8000'
+  }
+});
+app.use('/horizon', httpProxy);
 
 // get the intended port number, use port 3000 if not provided
 const port = argv.port || process.env.PORT || 3000;
 
 // Start your app.
-app.listen(port, (err) => {
+const httpServer = app.listen(port, (err) => {
   if (err) {
     return logger.error(err.message);
   }
@@ -42,3 +53,5 @@ app.listen(port, (err) => {
     logger.appStarted(port);
   }
 });
+
+httpServer.on('upgrade', httpProxy.upgrade);
