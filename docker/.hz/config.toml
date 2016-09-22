@@ -48,7 +48,7 @@ auto_create_index = false
 # 'connect' will connect to an existing RethinkDB instance
 # 'start_rethinkdb' will run an internal RethinkDB instance
 #------------------------------------------------------------------------------
-connect = "rethinkdb:28015"
+connect = "rethinkdb://rethinkdb:28015"
 # start_rethinkdb = false
 
 
