@@ -13,7 +13,12 @@ function RadonMaintainabilityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Radon Maintainability</h3>
+      <h3>
+      <p data-tip="metric of how maintainable the source code is">
+        Radon Maintainability 
+      </p>
+      <ReactTooltip place="right" type="dark" effect="float"/>
+      </h3>
       <Dots segments={segments}/>
       <p className="test-result">
         <span className="text-gray">Maintainability </span>

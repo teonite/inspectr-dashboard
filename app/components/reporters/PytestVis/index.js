@@ -14,7 +14,8 @@ function PytestVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Pytest Tests
+        <p data-tip="Python testing tool"> Pytest Tests </p>
+        <ReactTooltip place="right" type="dark" effect="float"/>
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>

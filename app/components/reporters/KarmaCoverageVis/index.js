@@ -11,7 +11,8 @@ function KarmaCoverageVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Karma Coverage
+        <p data-tip="Test coverage tool for JS"> Karma Coverage </p>
+        <ReactTooltip place="right" type="dark" effect="float"/>
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.lines_percent}%</span>
         </span>

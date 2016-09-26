@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactTooltip from 'react-tooltip'
+
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -13,7 +15,8 @@ function UnittestVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Python Unittests
+        <p data-tip="The Python unit testing framework"> Python Unittests </p>
+        <ReactTooltip place="right" type="dark" effect="float"/>
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>

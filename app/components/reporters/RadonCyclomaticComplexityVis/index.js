@@ -16,7 +16,12 @@ function RadonCyclomaticComplexityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Radon Cyclomatic Complexity</h3>
+      <h3>
+       <p data-tip="The count of the linearly independent paths in code">
+       Radon Cyclomatic Complexity
+       </p>
+       <ReactTooltip place="right" type="dark" effect="float"/>
+      </h3>
       <Dots segments={segments}/>
       <p className="test-result">
         <span className="text-gray">Complexity </span>

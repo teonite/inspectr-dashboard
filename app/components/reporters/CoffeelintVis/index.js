@@ -2,6 +2,8 @@ import React from 'react';
 
 import { colors } from 'utils/constants';
 
+import ReactTooltip from 'react-tooltip'
+
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 
@@ -17,7 +19,8 @@ function CoffeelintVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Coffeelint
+        <p data-tip="Style checker for CoffeeScript"> Coffeelint </p>
+        <ReactTooltip place="right" type="dark" effect="solid"/>
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>
           <span className="text-red">Errors: {summary.total_errors}</span>
