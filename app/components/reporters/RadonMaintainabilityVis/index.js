@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactTooltip from 'react-tooltip'
+
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -15,7 +17,7 @@ function RadonMaintainabilityVis({summary}) {
     <div className="chart">
       <h3>
       <p data-tip="metric of how maintainable the source code is">
-        Radon Maintainability 
+        Radon Maintainability
       </p>
       <ReactTooltip place="right" type="dark" effect="float"/>
       </h3>

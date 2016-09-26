@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactTooltip from 'react-tooltip'
+
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';

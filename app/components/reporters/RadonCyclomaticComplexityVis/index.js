@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ReactTooltip from 'react-tooltip'
+
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
