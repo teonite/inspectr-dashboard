@@ -17,7 +17,7 @@ function Flake8Vis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <p data-tip="Style checker for Python"> Flake8 </p>
+        <span data-tip="Style checker for Python"> Flake8 </span>
         <ReactTooltip place="right" type="dark" effect="solid"/>
         <span className="pull-right">
           <span className="text-red">Errors: {summary.total_errors} </span>

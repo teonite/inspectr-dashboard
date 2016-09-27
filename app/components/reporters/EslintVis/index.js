@@ -16,7 +16,7 @@ function EslintVis({ summary }) {
   return (
     <div className="chart">
       <h3>
-        <p data-tip="Style checker for JS and JSX"> Eslint </p>
+        <span data-tip="Style checker for JS and JSX"> Eslint </span>
         <ReactTooltip place="right" type="dark" effect="solid"/>
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>

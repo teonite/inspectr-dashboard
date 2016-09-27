@@ -15,7 +15,7 @@ function MochaTestsVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <p data-tip="JS unit testing framework"> Mocha Tests </p>
+        <span data-tip="JS unit testing framework"> Mocha Tests </span>
         <ReactTooltip place="right" type="dark" effect="float"/>
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>

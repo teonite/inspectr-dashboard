@@ -16,9 +16,9 @@ function RadonMaintainabilityVis({summary}) {
   return (
     <div className="chart">
       <h3>
-      <p data-tip="metric of how maintainable the source code is">
+      <span data-tip="metric of how maintainable the source code is">
         Radon Maintainability
-      </p>
+      </span>
       <ReactTooltip place="right" type="dark" effect="float"/>
       </h3>
       <Dots segments={segments}/>

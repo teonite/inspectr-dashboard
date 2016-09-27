@@ -13,7 +13,7 @@ function CoverageVis({ summary }) {
   return (
     <div className="chart">
       <h3>
-        <p data-tip="Tool for measuring code coverage in Python"> Coverage.py </p>
+        <span data-tip="Tool for measuring code coverage in Python"> Coverage.py </span>
         <ReactTooltip place="right" type="dark" effect="float"/>
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.coverage_percent}%</span>

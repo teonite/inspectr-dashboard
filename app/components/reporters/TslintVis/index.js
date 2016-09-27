@@ -17,7 +17,7 @@ function TslintVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <p data-tip="Style checker for TypeScript"> TSLint </p>
+        <span data-tip="Style checker for TypeScript"> TSLint </span>
         <ReactTooltip place="right" type="dark" effect="solid"/>
         <span className="pull-right">
           <span className="text-red">Errors: {summary.total_errors} </span>
