@@ -17,7 +17,7 @@ function ProjectBox({project}) {
     <div className="col-lg-3 col-md-6 col-xs-12">
       <div className="project-box">
         <div className="header">
-        <span title={fullRank} className={rankClassName}>
+          <span className={rankClassName}>
           <span className="global-rank">{ project.rankPlace }</span>
         </span>
           <h2><Link to={`/details/${project.id}`}>{project.project_name}</Link></h2>
