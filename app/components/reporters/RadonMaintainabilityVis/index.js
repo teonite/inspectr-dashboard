@@ -1,8 +1,7 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
 import Dots from 'components/Dots';
+import ReportHeader from 'components/ReportHeader';
 import { colors } from 'utils/constants';
 
 function RadonMaintainabilityVis({summary}) {
@@ -16,10 +15,7 @@ function RadonMaintainabilityVis({summary}) {
   return (
     <div className="chart">
       <h3>
-      <span data-tip="metric of how maintainable the source code is">
-        Radon Maintainability
-      </span>
-      <ReactTooltip place="right" type="dark" effect="float"/>
+        <ReportHeader tip="Metric of how maintainable the source code is" name="Radon Maintainability" />
       </h3>
       <Dots segments={segments}/>
       <p className="test-result">

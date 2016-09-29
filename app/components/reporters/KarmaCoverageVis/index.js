@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
+import ReportHeader from 'components/ReportHeader';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
 
@@ -13,8 +12,7 @@ function KarmaCoverageVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <span data-tip="Test coverage tool for JS"> Karma Coverage </span>
-        <ReactTooltip place="right" type="dark" effect="float"/>
+        <ReportHeader tip="Test coverage tool for JS" name="Karma Coverage" />
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.lines_percent}%</span>
         </span>

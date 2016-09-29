@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
+import ReportHeader from 'components/ReportHeader';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -19,10 +18,7 @@ function RadonCyclomaticComplexityVis({summary}) {
   return (
     <div className="chart">
       <h3>
-       <span data-tip="The count of the linearly independent paths in code">
-       Radon Cyclomatic Complexity
-       </span>
-       <ReactTooltip place="right" type="dark" effect="float"/>
+       <ReportHeader tip="The count of the linearly independent paths in code" name="Radon Cyclomatic Complexity" />
       </h3>
       <Dots segments={segments}/>
       <p className="test-result">

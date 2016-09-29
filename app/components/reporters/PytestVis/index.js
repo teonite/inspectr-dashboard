@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
+import ReportHeader from 'components/ReportHeader';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -16,8 +15,7 @@ function PytestVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <span data-tip="Python testing tool"> Pytest Tests </span>
-        <ReactTooltip place="right" type="dark" effect="float"/>
+        <ReportHeader tip="Python testing tool" name="Pytest Tests" />
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>

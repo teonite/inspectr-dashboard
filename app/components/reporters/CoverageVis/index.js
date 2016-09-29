@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
+import ReportHeader from 'components/ReportHeader';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
 
@@ -13,8 +12,7 @@ function CoverageVis({ summary }) {
   return (
     <div className="chart">
       <h3>
-        <span data-tip="Tool for measuring code coverage in Python"> Coverage.py </span>
-        <ReactTooltip place="right" type="dark" effect="float"/>
+        <ReportHeader tip="Tool for measuring code coverage in Python" name="Coverage.py" />
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.coverage_percent}%</span>
         </span>
