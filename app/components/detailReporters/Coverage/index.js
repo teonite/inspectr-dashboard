@@ -1,31 +1,39 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
 
-import MultiProgressBar from 'components/MultiProgressBar';
-import { colors } from 'utils/constants';
+class Coverage extends React.Component  {
 
-function Coverage({ summary }) {
-  const segments = [
-    {percent: summary.coverage_percent, color: colors.ok},
-    {percent: 100 - summary.coverage_percent, color: colors.error}
-  ];
-  return (
-    <div className="chart">
-      <h3>
-        <span data-tip="Tool for measuring code coverage in Python"> Coverage.py </span>
-        <ReactTooltip place="right" type="dark" effect="float"/>
-        <span className="pull-right">
-          <span className="text-gray">Coverage: {summary.coverage_percent}%</span>
-        </span>
-      </h3>
-      <MultiProgressBar segments={segments}/>
-    </div>
-  );
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
+
+  render() {
+    const {report} = this.props;
+
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader name="Coverage.py" tip="Tool for measuring code coverage in Python" open={this.state.open}/>
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-gray">Coverage: {report.summary.coverage_percent}%</span>
+            </p>
+          </div>
+        </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
+      </div>
+    );
+  }
 }
 
 Coverage.propTypes = {
-  summary: React.PropTypes.object.isRequired
+  report: React.PropTypes.object.isRequired
 };
 
 export default Coverage;

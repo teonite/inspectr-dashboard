@@ -16,7 +16,6 @@ import DetailsTslint from 'components/detailReporters/Tslint';
 
 
 function Report({report}) {
-  console.log(report)
   const choose = (report, index) => {
     if (report.summary === null) {
       return <DetailsError key={index} report={report}/>
@@ -25,31 +24,31 @@ function Report({report}) {
     let specificReport = null;
     switch (report.type) {
       case 'flake8':
-        //specificReport = <DetailsFlake8 key={index} report={report} />;
+        specificReport = <DetailsFlake8 key={index} report={report} />;
         break;
       case 'unittest':
         specificReport = <DetailsUnittest key={index} report={report} />;
         break;
       case 'pytest':
-        //specificReport = <DetailsPytest key={index} report={report} />;
+        specificReport = <DetailsPytest key={index} report={report} />;
         break;
       case 'radon-maintainability':
-        //specificReport = <DetailsRadonMaintainability key={index} report={report} />;
+        specificReport = <DetailsRadonMaintainability key={index} report={report} />;
         break;
       case 'radon-cyclomatic-complexity':
-        //specificReport = <DetailsRadonCyclomaticComplexity key={index} report={report} />;
+        specificReport = <DetailsRadonCyclomaticComplexity key={index} report={report} />;
         break;
       case 'coverage-py':
-        //specificReport = <DetailsCoverage key={index} report={report} />;
+        specificReport = <DetailsCoverage key={index} report={report} />;
         break;
       case 'eslint':
-        //specificReport = <DetailsEslint key={index} report={report} />;
+        specificReport = <DetailsEslint key={index} report={report} />;
         break;
       case 'coffeelint':
-        //specificReport = <DetailsCoffeelint key={index} report={report} />;
+        specificReport = <DetailsCoffeelint key={index} report={report} />;
         break;
       case 'jasmine':
-        //specificReport = <DetailsJasmineTests key={index} report={report} />;
+        specificReport = <DetailsJasmineTests key={index} report={report} />;
         break;
       case 'mocha':
         specificReport = <DetailsMochaTests key={index} report={report} />;
@@ -58,7 +57,7 @@ function Report({report}) {
         specificReport = <DetailsKarmaCoverage key={index} report={report} />;
         break;
       case 'tslint':
-        //specificReport = <DetailsTslint key={index} report={report} />;
+        specificReport = <DetailsTslint key={index} report={report} />;
         break;
 
     }

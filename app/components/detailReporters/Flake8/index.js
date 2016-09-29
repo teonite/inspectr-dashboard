@@ -1,35 +1,42 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
-
+import ReportHeader from 'components/DetailReportHeader';
 import { invertedArctanAsymptote } from 'utils/ranking';
-import MultiProgressBar from 'components/MultiProgressBar';
-import { colors } from 'utils/constants';
+import OutputDisplay from 'components/OutputDisplay';
 
-function Flake8Vis({summary}) {
+class Flake8 extends React.Component  {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
 
-  const totalOk = 100 * invertedArctanAsymptote(summary.total_errors);
-  const segments = [
-    {percent: totalOk, color: colors.ok},
-    {percent: (100 - totalOk), color: colors.error}
-  ];
+  render() {
+    const {report} = this.props;
+    const totalOk = 100 * invertedArctanAsymptote(report.summary.total_errors);
 
-  return (
-    <div className="chart">
-      <h3>
-        <span data-tip="Style checker for Python"> Flake8 </span>
-        <ReactTooltip place="right" type="dark" effect="solid"/>
-        <span className="pull-right">
-          <span className="text-red">Errors: {summary.total_errors} </span>
-        </span>
-      </h3>
-      <MultiProgressBar segments={segments}/>
-    </div>
-  );
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader open={this.state.open} name="Flake8" tip="Style checker for Python" />
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-green">OK: {totalOk} </span>
+              <span className="text-red">Error: {100 - totalOk}</span>
+            </p>
+          </div>
+        </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
+      </div>
+    );
+  }
 }
 
-Flake8Vis.propTypes = {
-  summary: React.PropTypes.object.isRequired
+Flake8.propTypes = {
+  report: React.PropTypes.object.isRequired,
 };
 
-export default Flake8Vis;
+export default Flake8;

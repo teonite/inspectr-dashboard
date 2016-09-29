@@ -1,38 +1,40 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
+import OutputDisplay from 'components/OutputDisplay';
 
-import MultiProgressBar from 'components/MultiProgressBar';
-import { colors } from 'utils/constants';
+class KarmaCoverage extends React.Component  {
 
-function KarmaCoverageVis({report}) {
-  const segments = [
-    {percent: report.summary.lines_percent, color: colors.ok},
-    {percent: 100 - report.summary.lines_percent, color: colors.error}
-  ];
-  return (
-    <div className="section">
-      <div className="row">
-        <div className="col-xs-6 col-xs-12 title">
-          <h3>
-            <span data-tip="Test coverage tool for JS" className="reveal"><i className="glyphicon glyphicon-menu-right" /></span>
-            Karma Coverage <span className="text-gray">{'{'}...{'}'}</span>
-            <ReactTooltip place="right" type="dark" effect="solid"/>
-          </h3>
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
+
+  render() {
+    const {report} = this.props;
+
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader name="Karma Coverage" tip="Test coverage tool for JS" open={this.state.open}/>
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-gray">Coverage: {report.summary.lines_percent}%</span>
+            </p>
+          </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
         </div>
-        <div className="col-xs-6 col-xs-12 chart">
-          <p className="test-result">
-            <span className="text-gray">Coverage: {report.summary.lines_percent}%</span>
-          </p>
-        </div>
-      <MultiProgressBar segments={segments}/>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-KarmaCoverageVis.propTypes = {
+KarmaCoverage.propTypes = {
   report: React.PropTypes.object.isRequired
 }
 
-export default KarmaCoverageVis;
+export default KarmaCoverage;

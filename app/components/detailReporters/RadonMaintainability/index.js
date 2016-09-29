@@ -1,40 +1,43 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
+import OutputDisplay from 'components/OutputDisplay';
 
-import Dots from 'components/Dots';
-import { colors } from 'utils/constants';
+class RadonMaintainability extends React.Component  {
 
-function RadonMaintainabilityVis({summary}) {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
 
-  const segments = [
-    {items: summary.A, color: colors.ok},
-    {items: summary.B, color: colors.warning},
-    {items: summary.C, color: colors.error}
-  ];
+  render() {
+    const {report} = this.props;
 
-  return (
-    <div className="chart">
-      <h3>
-      <span data-tip="metric of how maintainable the source code is">
-        Radon Maintainability
-      </span>
-      <ReactTooltip place="right" type="dark" effect="float"/>
-      </h3>
-      <Dots segments={segments}/>
-      <p className="test-result">
-        <span className="text-gray">Maintainability </span>
-        <span className="text-green">A: {summary.A} </span>
-        <span className="text-orange">B: {summary.B} </span>
-        <span className="text-red">C: {summary.C}</span>
-      </p>
-    </div>
-  );
-
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader name="Radon Maintainability" tip="Metric of how maintainable the source code is" open={this.state.open}/>
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-gray">Maintainability </span>
+              <span className="text-green">A: {report.summary.A} </span>
+              <span className="text-orange">B: {report.summary.B} </span>
+              <span className="text-red">C: {report.summary.C}</span>
+            </p>
+          </div>
+        </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
+      </div>
+    );
+  }
 }
 
-RadonMaintainabilityVis.propTypes = {
-  summary: React.PropTypes.object.isRequired
+RadonMaintainability.propTypes = {
+  report: React.PropTypes.object.isRequired
 };
 
-export default RadonMaintainabilityVis;
+export default RadonMaintainability;

@@ -1,41 +1,40 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
+import OutputDisplay from 'components/OutputDisplay';
 
-import Dots from 'components/Dots';
-import { colors } from 'utils/constants';
+class MochaTests extends React.Component  {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
 
-function MochaTestsVis({report}) {
+  render() {
+    const {report} = this.props;
 
-  const segments = [
-    {items: report.summary.passed_tests, color: colors.ok},
-    {items: report.summary.failed_tests, color: colors.error}
-  ];
-
-  return (
-    <div className="section">
-      <div className="row">
-        <div className="col-xs-6 col-xs-12 title">
-          <h3>
-            <span data-tip="JS unit testing framework" className="reveal"><i className="glyphicon glyphicon-menu-right" /></span>
-            Mocha Tests <span className="text-gray">{'{'}...{'}'}</span>
-            <ReactTooltip place="right" type="dark" effect="solid"/>
-          </h3>
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader open={this.state.open} name="Mocha Tests" tip="JS unit testing framework" />
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-green">Passed: {report.summary.passed_tests} </span>
+              <span className="text-red">Failed: {report.summary.failed_tests}</span>
+            </p>
+          </div>
+          <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
         </div>
-        <div className="col-xs-6 col-xs-12 chart">
-          <p className="test-result">
-            <span className="text-green">Passed: {report.summary.passed_tests} </span>
-            <span className="text-red">Failed: {report.summary.failed_tests}</span>
-          </p>
-        </div>
-      <Dots segments={segments}/>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-MochaTestsVis.propTypes = {
+MochaTests.propTypes = {
   report: React.PropTypes.object.isRequired
 }
 
-export default MochaTestsVis;
+export default MochaTests;

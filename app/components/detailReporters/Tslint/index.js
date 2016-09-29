@@ -1,35 +1,40 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
+import OutputDisplay from 'components/OutputDisplay';
 
-import { invertedArctanAsymptote } from 'utils/ranking';
-import MultiProgressBar from 'components/MultiProgressBar';
-import { colors } from 'utils/constants';
+class Tslint extends React.Component  {
 
-function TslintVis({summary}) {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
 
-  const totalOk = 100 * invertedArctanAsymptote(summary.total_errors);
-  const segments = [
-    {percent: totalOk, color: colors.ok},
-    {percent: (100 - totalOk), color: colors.error}
-  ];
+  render() {
+    const {report} = this.props;
 
-  return (
-    <div className="chart">
-      <h3>
-        <span data-tip="Style checker for TypeScript"> TSLint </span>
-        <ReactTooltip place="right" type="dark" effect="solid"/>
-        <span className="pull-right">
-          <span className="text-red">Errors: {summary.total_errors} </span>
-        </span>
-      </h3>
-      <MultiProgressBar segments={segments}/>
-    </div>
-  );
+    return (
+        <div className="section">
+          <div className="row">
+            <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+              <ReportHeader name="TSLint" tip="Style checker for TypeScript" open={this.state.open}/>
+            </div>
+            <div className="col-xs-6 col-xs-12 chart">
+              <p className="test-result">
+                <span className="text-red">Errors: {report.summary.total_errors} </span>
+              </p>
+            </div>
+          </div>
+          <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
+        </div>
+    );
+  }
 }
 
-TslintVis.propTypes = {
-  summary: React.PropTypes.object.isRequired
+Tslint.propTypes = {
+  report: React.PropTypes.object.isRequired
 };
 
-export default TslintVis;
+export default Tslint;

@@ -1,37 +1,37 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
+import ReportHeader from 'components/DetailReportHeader';
+import OutputDisplay from 'components/OutputDisplay';
 
-import Dots from 'components/Dots';
-import { colors } from 'utils/constants';
+class Unittest extends React.Component  {
 
-function Unittest({report}) {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
 
-  const segments = [
-    {items: report.summary.passed_tests, color: colors.ok},
-    {items: report.summary.failed_tests, color: colors.error}
-  ];
+  render() {
+    const {report} = this.props;
 
-  return (
-    <div className="section">
-      <div className="row">
-        <div className="col-xs-6 col-xs-12 title">
-          <h3>
-            <span data-tip="The Python unit testing framework" className="reveal"><i className="glyphicon glyphicon-menu-right" /></span>
-            Python Unittests <span className="text-gray">{'{'}...{'}'}</span>
-            <ReactTooltip place="right" type="dark" effect="solid"/>
-          </h3>
+    return (
+      <div className="section">
+        <div className="row">
+          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
+            <ReportHeader name="Python Unittests" tip="The Python unit testing framework" open={this.state.open}/>
+          </div>
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              <span className="text-green">Passed: {report.summary.passed_tests} </span>
+              <span className="text-red">Errors: {report.summary.failed_tests}</span>
+            </p>
+          </div>
         </div>
-        <div className="col-xs-6 col-xs-12 chart">
-          <p className="test-result">
-            <span className="text-green">Passed: {report.summary.passed_tests} </span>
-            <span className="text-red">Errors: {report.summary.failed_tests}</span>
-          </p>
-        </div>
-      <Dots segments={segments}/>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Unittest.propTypes = {

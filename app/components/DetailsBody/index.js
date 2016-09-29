@@ -5,13 +5,14 @@ import Report from 'components/DetailsReport';
 function DetailsBody({project}) {
   const projectRank = rankProject(project);
   const formatDate = (date) => date.toLocaleString('pl-PL');
-  
+  const rankClassName = `rank rank-badge-${projectRank}`;
+
   return (
       <div className="row">
         <div className="col-xs-12">
           <div className="project-box details">
             <div className="header row">
-              <span className="rank rank-badge-9"/>
+              <span className={rankClassName}/>
               <div className="col-md-8">
                 <h2>{project.project_name}</h2>
                 <p className="subtext">Rank: {projectRank} <span className="text-dark-gray">/</span> Last update: {formatDate(project.time_created)}</p>
