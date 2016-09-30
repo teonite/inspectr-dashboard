@@ -1,23 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
-
-import OutputDisplay from 'components/OutputDisplay';
+import DetailsHeader from 'components/DetailsHeader'
+import DetailsBody from 'components/DetailsBody'
+import DetailsFooter from 'components/DetailsFooter'
 
 function ProjectDetails({project}) {
 
   return (
-    <div className="col-xs-12">
-      <br/>
-      <Link to='/'>Back to Dashboard</Link>
-      <br/>
-      {project.reports.map((report, index) => (
-        <div key={index}>
-          <h2>{report.type}</h2>
-          <OutputDisplay stdout={report.stdout} stderr={report.stderr} />
-        </div>
-      ))}
+    <div>
+      <DetailsHeader/>
+      <DetailsBody project={project}/>
+      <DetailsFooter/>
     </div>
-  );
+  )
 }
 
 ProjectDetails.propTypes = {

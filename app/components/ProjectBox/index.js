@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import { rankProject, MAX_RANK } from 'utils/ranking';
+import { rankProject } from 'utils/ranking';
 import Report from 'components/Report';
 
 
@@ -9,8 +9,6 @@ function ProjectBox({project}) {
 
   const projectRank = rankProject(project);
   const rankClassName = `rank rank-badge-${projectRank}`;
-  const fullRank = `${projectRank} / ${MAX_RANK}`;
-
   const formatDate = (date) => date.toLocaleString('pl-PL');
 
   return (
