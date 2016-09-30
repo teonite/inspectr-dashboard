@@ -25,6 +25,8 @@ import configureStore from './store';
 //import 'sanitize.css/lib/sanitize.css';
 import 'css/bootstrap.css';
 import 'css/style.css';
+import 'css/googleFont1.css';
+import 'css/googleFont2.css';
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
