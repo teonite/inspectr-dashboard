@@ -26,8 +26,8 @@ class KarmaCoverage extends React.Component  {
               <span className="text-gray">Coverage: {report.summary.lines_percent}%</span>
             </p>
           </div>
-        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
         </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
       </div>
     );
   }
