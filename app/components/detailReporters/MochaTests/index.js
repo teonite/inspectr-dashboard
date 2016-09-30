@@ -26,8 +26,8 @@ class MochaTests extends React.Component  {
               <span className="text-red">Failed: {report.summary.failed_tests}</span>
             </p>
           </div>
-          <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
         </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
       </div>
     );
   }

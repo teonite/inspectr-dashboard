@@ -10,12 +10,10 @@ class OutputDisplay extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row revealed">
         <Panel bsClass="code-panel" collapsible expanded={this.props.open}>
-          <div className="row revealed">
-            <div className="code">
-              <pre>{this.props.stdout + this.props.stderr}</pre>
-            </div>
+          <div className="code">
+            <pre>{this.props.stdout + this.props.stderr}</pre>
           </div>
         </Panel>
       </div>

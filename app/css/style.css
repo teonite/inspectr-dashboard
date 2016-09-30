@@ -79,8 +79,8 @@ footer { padding: 10px 0 15px 0; }
 .project-box.details .section h3 .reveal { display: inline-block; width: 22px; height: 22px; color: #8792aa; }
 .project-box.details .section h3.active,
 .project-box.details .section h3.active .reveal { color: #5aa2ff; }
-.project-box.details .section .revealed { margin: 20px 0 0 0; padding-left: 25px; }
-.project-box.details .section .revealed .code pre { margin: 0; border: 0; border-radius: 0; padding: 30px; background-color: #0c0e15; color: #98a3b9; font-family: 'Ubuntu Mono', sans-serif; font-size: 13px; }
+.project-box.details .section .revealed { margin: 0; padding-left: 25px; }
+.project-box.details .section .revealed .code pre { margin: 20px 0 0 0; border: 0; border-radius: 0; padding: 30px; background-color: #0c0e15; color: #98a3b9; font-family: 'Ubuntu Mono', sans-serif; font-size: 13px; }
 .project-box.details .section .revealed .code-chart { padding-left: 30px; }
 .project-box.details .section .revealed .code-chart h4 { margin: 0 0 15px 0; color: #79849a; font-weight: 200; font-size: 18px; }
 .project-box.details .chart { padding: 0; text-align: right; }

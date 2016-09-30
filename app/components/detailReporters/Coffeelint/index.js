@@ -28,8 +28,8 @@ class Coffeelint extends React.Component  {
               <span className="text-red">Errors: {report.summary.total_errors}</span>
             </p>
           </div>
-          <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
         </div>
+        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
       </div>
     );
   }
