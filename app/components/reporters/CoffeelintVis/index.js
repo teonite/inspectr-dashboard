@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { colors } from 'utils/constants';
-
+import ReportHeader from 'components/ReportHeader';
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 
@@ -17,10 +17,10 @@ function CoffeelintVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Coffeelint
+        <ReportHeader tip="Style checker for CoffeeScript" name="Coffeelint" />
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>
-          <span className="text-red">Errors: {summary.total_errors} </span>
+          <span className="text-red">Errors: {summary.total_errors}</span>
         </span>
       </h3>
       <MultiProgressBar segments={segments}/>

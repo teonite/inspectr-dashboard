@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ReportHeader from 'components/ReportHeader';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -13,9 +14,9 @@ function MochaTestsVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Mocha Tests
+        <ReportHeader tip="JS unit testing framework" name="Mocha Tests" />
         <span className="pull-right">
-          <span className="text-green">Passed: {summary.passed_tests}</span>
+          <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>
         </span>
       </h3>

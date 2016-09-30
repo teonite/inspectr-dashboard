@@ -3,7 +3,7 @@ coverage
 build
 node_modules
 stats.json
-
+rethinkdb_data
 # Cruft
 .DS_Store
 npm-debug.log

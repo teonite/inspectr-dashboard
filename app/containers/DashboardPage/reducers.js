@@ -2,7 +2,7 @@ import {TOGGLE_CAROUSEL} from './actionTypes';
 
 
 const initialState = {
-  carouselActive: true,
+  carouselActive: false,
 };
 
 export function dashboardPageReducer(state = initialState, action){

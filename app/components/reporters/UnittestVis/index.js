@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Dots from 'components/Dots';
+import ReportHeader from 'components/ReportHeader';
 import { colors } from 'utils/constants';
 
 function UnittestVis({summary}) {
@@ -13,10 +14,10 @@ function UnittestVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Python Unittests
+        <ReportHeader tip="The Python unit testing framework" name="Python Unittests" />
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
-          <span className="text-red">Failed: {summary.failed_tests} </span>
+          <span className="text-red">Failed: {summary.failed_tests}</span>
         </span>
       </h3>
       <Dots segments={segments}/>

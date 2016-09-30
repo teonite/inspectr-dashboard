@@ -15,8 +15,13 @@ code quality tools. Those are the ones supported now, more under way:
 # Installation
 
 1. npm install
-2. npm build
+2. npm run build
 
 # Running
 1. npm run horizon
 2. goto: http://localhost:8181
+
+# Development
+1. npm run horizon
+2. npm run start
+3. goto: http://localhost:3000

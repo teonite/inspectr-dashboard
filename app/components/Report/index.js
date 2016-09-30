@@ -11,6 +11,8 @@ import KarmaCoverageVis from 'components/reporters/KarmaCoverageVis';
 import PytestVis from 'components/reporters/PytestVis';
 import ErrorVis from 'components/reporters/ErrorVis';
 import RadonMaintainabilityVis from 'components/reporters/RadonMaintainabilityVis';
+import RadonCyclomaticComplexityVis from 'components/reporters/RadonCyclomaticComplexityVis';
+import TslintVis from 'components/reporters/TslintVis';
 
 
 function Report({report}) {
@@ -33,6 +35,9 @@ function Report({report}) {
       case 'radon-maintainability':
         specificReport = <RadonMaintainabilityVis key={index} summary={report.summary}/>;
         break;
+      case 'radon-cyclomatic-complexity':
+        specificReport = <RadonCyclomaticComplexityVis key={index} summary={report.summary}/>;
+        break;
       case 'coverage-py':
         specificReport = <CoverageVis key={index} summary={report.summary}/>;
         break;
@@ -51,6 +56,10 @@ function Report({report}) {
       case 'karma-coverage':
         specificReport = <KarmaCoverageVis key={index} summary={report.summary}/>;
         break;
+      case 'tslint':
+        specificReport = <TslintVis key={index} summary={report.summary}/>;
+        break;
+
     }
     return specificReport
   };

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ReportHeader from 'components/ReportHeader';
 import { invertedArctanAsymptote } from 'utils/ranking';
+import ReportHeader from 'components/ReportHeader';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
 
-function Flake8Vis({summary}) {
+function TslintVis({summary}) {
 
   const totalOk = 100 * invertedArctanAsymptote(summary.total_errors);
   const segments = [
@@ -16,7 +16,7 @@ function Flake8Vis({summary}) {
   return (
     <div className="chart">
       <h3>
-        <ReportHeader tip="Style checker for Python" name="Flake8" />
+        <ReportHeader tip="Style checker for TypeScript" name="TSLint" />
         <span className="pull-right">
           <span className="text-red">Errors: {summary.total_errors} </span>
         </span>
@@ -26,8 +26,8 @@ function Flake8Vis({summary}) {
   );
 }
 
-Flake8Vis.propTypes = {
+TslintVis.propTypes = {
   summary: React.PropTypes.object.isRequired
 };
 
-export default Flake8Vis;
+export default TslintVis;
