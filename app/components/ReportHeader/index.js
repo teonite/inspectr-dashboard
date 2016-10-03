@@ -16,6 +16,7 @@ function ReportHeader({name, tip, children}) {
 ReportHeader.propTypes = {
   name: React.PropTypes.string.isRequired,
   tip: React.PropTypes.string.isRequired,
+  children: React.PropTypes.element.isRequired
 };
 
 export default ReportHeader;
