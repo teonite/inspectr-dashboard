@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ReportHeader from 'components/DetailReportHeader';
+import DetailReportWrapper from 'components/DetailReportWrapper';
 import OutputDisplay from 'components/OutputDisplay';
 
 class Pytest extends React.Component  {
@@ -16,20 +16,10 @@ class Pytest extends React.Component  {
     const {report} = this.props;
 
     return (
-      <div className="section">
-        <div className="row">
-          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
-            <ReportHeader name="Pytest Tests" tip="Python testing tool" open={this.state.open}/>
-          </div>
-          <div className="col-xs-6 col-xs-12 chart">
-            <p className="test-result">
-              <span className="text-green">Passed: {report.summary.passed_tests} </span>
-              <span className="text-red">Failed: {report.summary.failed_tests}</span>
-            </p>
-          </div>
-        </div>
-        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
-      </div>
+      <DetailReportWrapper name="Pytest Tests" tip="Python testing tool" stderr={report.stderr} stdout={report.stdout} >
+        <span className="text-green">Passed: {report.summary.passed_tests} </span>
+        <span className="text-red">Failed: {report.summary.failed_tests}</span>
+      </DetailReportWrapper>
     );
   }
 }

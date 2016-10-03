@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ReportHeader from 'components/DetailReportHeader';
+import DetailReportWrapper from 'components/DetailReportWrapper';
 
 class Coverage extends React.Component  {
 
@@ -15,19 +15,9 @@ class Coverage extends React.Component  {
     const {report} = this.props;
 
     return (
-      <div className="section">
-        <div className="row">
-          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
-            <ReportHeader name="Coverage.py" tip="Tool for measuring code coverage in Python" open={this.state.open}/>
-          </div>
-          <div className="col-xs-6 col-xs-12 chart">
-            <p className="test-result">
-              <span className="text-gray">Coverage: {report.summary.coverage_percent}%</span>
-            </p>
-          </div>
-        </div>
-        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
-      </div>
+      <DetailReportWrapper name="Coverage.py" tip="Tool for measuring code coverage in Python" stderr={report.stderr} stdout={report.stdout} >
+        <span className="text-gray">Coverage: {report.summary.coverage_percent}%</span>
+      </DetailReportWrapper>
     );
   }
 }
