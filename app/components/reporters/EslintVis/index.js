@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ReportHeader from 'components/ReportHeader';
 import { invertedArctanAsymptote } from 'utils/ranking';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
@@ -14,7 +15,7 @@ function EslintVis({ summary }) {
   return (
     <div className="chart">
       <h3>
-        Eslint
+        <ReportHeader tip="Style checker for JS and JSX" name="Eslint" />
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>
           <span className="text-red">Errors: {summary.total_errors}</span>

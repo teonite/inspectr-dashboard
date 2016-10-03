@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ReportHeader from 'components/ReportHeader';
 import MultiProgressBar from 'components/MultiProgressBar';
 import { colors } from 'utils/constants';
 
@@ -11,7 +12,7 @@ function KarmaCoverageVis({summary}) {
   return (
     <div className="chart">
       <h3>
-        Karma Coverage
+        <ReportHeader tip="Test coverage tool for JS" name="Karma Coverage" />
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.lines_percent}%</span>
         </span>

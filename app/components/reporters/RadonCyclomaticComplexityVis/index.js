@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ReportHeader from 'components/ReportHeader';
 import Dots from 'components/Dots';
 import { colors } from 'utils/constants';
 
@@ -16,7 +17,9 @@ function RadonCyclomaticComplexityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Radon Cyclomatic Complexity</h3>
+      <h3>
+       <ReportHeader tip="The count of the linearly independent paths in code" name="Radon Cyclomatic Complexity" />
+      </h3>
       <Dots segments={segments}/>
       <p className="test-result">
         <span className="text-gray">Complexity </span>

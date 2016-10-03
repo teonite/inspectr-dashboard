@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Dots from 'components/Dots';
+import ReportHeader from 'components/ReportHeader';
 import { colors } from 'utils/constants';
 
 function RadonMaintainabilityVis({summary}) {
@@ -13,7 +14,9 @@ function RadonMaintainabilityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>Radon Maintainability</h3>
+      <h3>
+        <ReportHeader tip="Metric of how maintainable the source code is" name="Radon Maintainability" />
+      </h3>
       <Dots segments={segments}/>
       <p className="test-result">
         <span className="text-gray">Maintainability </span>

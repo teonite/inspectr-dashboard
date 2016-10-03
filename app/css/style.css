@@ -4,7 +4,8 @@ body { margin: 0; padding: 0 15px 15px 15px; background: url("../img/bg_grid.jpg
 h1 { margin: 0; font-size: 23px; }
 h2 { font-size: 21px; font-weight: 600; margin: 0 0 5px 0; }
 h3 { font-size: 13px; font-weight: 700; margin: 0 0 10px 0; text-transform: uppercase; }
-h3 span { font-weight: 400; text-transform: none; }
+h3 span { display: inline-block; }
+h3 span.pull-right > span { margin-left: 10px; font-weight: 400; text-transform: none; }
 
 a { color: #fff; }
 a:hover, a:active, a:focus { color: #98a3b9; text-decoration: none; }
@@ -78,8 +79,8 @@ footer { padding: 10px 0 15px 0; }
 .project-box.details .section h3 .reveal { display: inline-block; width: 22px; height: 22px; color: #8792aa; }
 .project-box.details .section h3.active,
 .project-box.details .section h3.active .reveal { color: #5aa2ff; }
-.project-box.details .section .revealed { margin: 20px 0 0 0; padding-left: 25px; }
-.project-box.details .section .revealed .code { padding: 30px; background-color: #0c0e15; color: #98a3b9; font-family: 'Ubuntu Mono', sans-serif; font-size: 13px; }
+.project-box.details .section .revealed { margin: 0; padding-left: 25px; }
+.project-box.details .section .revealed .code pre { margin: 20px 0 0 0; border: 0; border-radius: 0; padding: 30px; background-color: #0c0e15; color: #98a3b9; font-family: 'Ubuntu Mono', sans-serif; font-size: 13px; }
 .project-box.details .section .revealed .code-chart { padding-left: 30px; }
 .project-box.details .section .revealed .code-chart h4 { margin: 0 0 15px 0; color: #79849a; font-weight: 200; font-size: 18px; }
 .project-box.details .chart { padding: 0; text-align: right; }
@@ -173,7 +174,7 @@ footer { padding: 10px 0 15px 0; }
     .dashboard-wrapper { padding: 0 0 0; margin-top: 40px; }
     .dashboard-wrapper > .row { margin-bottom: 30px; }
     .header-wrapper { padding: 0; }
-    .project-box { margin: 0; }
+    /*.project-box { margin: 0; }*/
     .top-projects .header-title { display: none; }
     .top-projects ul { text-align: left; }
     .top-projects ul li { text-align: left; max-width: 32%; }
@@ -193,13 +194,13 @@ footer { padding: 10px 0 15px 0; }
     .top-projects ul { text-align: center; }
     .top-projects ul li { max-width: none; }
     .top-projects.stats ul { text-align: center; }
-    .project-box.details .section .revealed .code { font-size: 11px; }
+    .project-box.details .section .revealed .code pre { font-size: 11px; }
 }
 
 @media (max-width: 992px) {
     .mobile-off { display: none; }
     .project-box.details .section .revealed { padding: 0; }
-    .project-box.details .section .revealed .code { padding: 15px; }
+    .project-box.details .section .revealed .code pre { padding: 15px; }
     .project-box.details .section .revealed .code-chart { padding: 0; margin: 30px 0 10px 0; }
     .arrow-nav .arrow:last-of-type { margin-right: 0; }
 }
