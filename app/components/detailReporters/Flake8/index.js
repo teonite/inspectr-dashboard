@@ -2,7 +2,6 @@ import React from 'react';
 
 import DetailReportWrapper from 'components/DetailReportWrapper';
 import { invertedArctanAsymptote } from 'utils/ranking';
-import OutputDisplay from 'components/OutputDisplay';
 
 class Flake8 extends React.Component  {
   constructor(...args) {

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import DetailReportWrapper from 'components/DetailReportWrapper';
-import OutputDisplay from 'components/OutputDisplay';
 
 class Tslint extends React.Component  {
 

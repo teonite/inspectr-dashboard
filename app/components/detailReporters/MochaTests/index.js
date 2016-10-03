@@ -1,7 +1,6 @@
 import React from 'react';
 
 import DetailReportWrapper from 'components/DetailReportWrapper';
-import OutputDisplay from 'components/OutputDisplay';
 
 class MochaTests extends React.Component  {
   constructor(...args) {
