@@ -17,19 +17,17 @@ function RadonCyclomaticComplexityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>
-       <ReportHeader tip="The count of the linearly independent paths in code" name="Radon Cyclomatic Complexity" />
-      </h3>
+     <ReportHeader tip="The count of the linearly independent paths in code" name="Radon Cyclomatic Complexity">
+       <p className="test-result">
+         <span className="text-green">A: {summary.A} </span>
+         <span className="text-green">B: {summary.B} </span>
+         <span className="text-orange">C: {summary.C} </span>
+         <span className="text-orange">D: {summary.D} </span>
+         <span className="text-red">E: {summary.E} </span>
+         <span className="text-red">F: {summary.F}</span>
+       </p>
+      </ReportHeader>
       <Dots segments={segments}/>
-      <p className="test-result">
-        <span className="text-gray">Complexity </span>
-        <span className="text-green">A: {summary.A} </span>
-        <span className="text-green">B: {summary.B} </span>
-        <span className="text-orange">C: {summary.C} </span>
-        <span className="text-orange">D: {summary.D} </span>
-        <span className="text-red">E: {summary.E} </span>
-        <span className="text-red">F: {summary.F}</span>
-      </p>
     </div>
   );
 }

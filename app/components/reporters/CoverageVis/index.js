@@ -11,12 +11,11 @@ function CoverageVis({ summary }) {
   ];
   return (
     <div className="chart">
-      <h3>
-        <ReportHeader tip="Tool for measuring code coverage in Python" name="Coverage.py" />
+      <ReportHeader tip="Tool for measuring code coverage in Python" name="Coverage.py">
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.coverage_percent}%</span>
         </span>
-      </h3>
+      </ReportHeader>
       <MultiProgressBar segments={segments}/>
     </div>
   );

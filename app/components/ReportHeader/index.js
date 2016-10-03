@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip'
 
-function ReportHeader({name, tip}) {
+function ReportHeader({name, tip, children}) {
   return (
-    <div>
-      <span data-tip={tip}> {name} </span>
-      <ReactTooltip place="right" type="dark" effect="solid"/>
-    </div>
+    <h3>
+      <div>
+        <span data-tip={tip}> {name} </span>
+        <ReactTooltip place="right" type="dark" effect="solid"/>
+        {children}
+      </div>
+    </h3>
   );
 }
 

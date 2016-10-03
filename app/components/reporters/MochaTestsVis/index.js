@@ -13,13 +13,12 @@ function MochaTestsVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>
-        <ReportHeader tip="JS unit testing framework" name="Mocha Tests" />
+      <ReportHeader tip="JS unit testing framework" name="Mocha Tests">
         <span className="pull-right">
           <span className="text-green">Passed: {summary.passed_tests} </span>
           <span className="text-red">Failed: {summary.failed_tests}</span>
         </span>
-      </h3>
+      </ReportHeader>
       <Dots segments={segments}/>
     </div>
   );

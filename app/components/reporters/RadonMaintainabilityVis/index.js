@@ -14,16 +14,15 @@ function RadonMaintainabilityVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>
-        <ReportHeader tip="Metric of how maintainable the source code is" name="Radon Maintainability" />
-      </h3>
+      <ReportHeader tip="Metric of how maintainable the source code is" name="Radon Maintainability">
+        <p className="test-result">
+          <span className="text-gray">Maintainability </span>
+          <span className="text-green">A: {summary.A} </span>
+          <span className="text-orange">B: {summary.B} </span>
+          <span className="text-red">C: {summary.C}</span>
+        </p>
+      </ReportHeader>
       <Dots segments={segments}/>
-      <p className="test-result">
-        <span className="text-gray">Maintainability </span>
-        <span className="text-green">A: {summary.A} </span>
-        <span className="text-orange">B: {summary.B} </span>
-        <span className="text-red">C: {summary.C}</span>
-      </p>
     </div>
   );
 
