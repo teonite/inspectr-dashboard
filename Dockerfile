@@ -1,6 +1,7 @@
 FROM node:6
 MAINTAINER Jacek Chmielewski "jchmielewski@teonite.com"
 
+RUN mkdir /app
 ADD package.json /app
 RUN cd /app/ && npm install
 ADD . /app
