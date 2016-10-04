@@ -82,7 +82,6 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
 
   render() {
     const {projects, toggleCarousel, ...remainingProps} = this.props; // eslint-disable-line no-unused-vars
-
     return (
       <Dashboard projects={this.projects}
                  topProjects={this.topProjects}
@@ -104,7 +103,7 @@ DashboardPage.propTypes = {
 };
 
 const mapDataToProps = {
-  projects: (hz) => hz('reports')
+  projects: (hz) => hz('reports').order("id")
 };
 
 const mapStateToProps = (state, props) => ({
