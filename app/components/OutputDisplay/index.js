@@ -29,13 +29,3 @@ OutputDisplay.propTypes = {
 }
 
 export default OutputDisplay;
-
-/*
-<Panel bsClass="test" collapsible expanded={this.state.open}>
-  <div className="row revealed">
-    <div className="code">
-      <pre>{report.stdout + report.stderr}</pre>
-    </div>
-  </div>
-</Panel>
-*/
