@@ -1,4 +1,4 @@
-import {TOGGLE_CAROUSEL} from './actionTypes';
+import {TOGGLE_CAROUSEL, FILTER_PROJECTS} from './actionTypes';
 import { browserHistory } from 'react-router';
 
 export function rotatePage(page, maxPage){
@@ -20,5 +20,12 @@ function toggleCarouselAction(){
 export function toggleCarousel(){
   return (dispatch) => {
     dispatch(toggleCarouselAction());
+  };
+}
+
+export function filterProjects(query) {
+  return {
+    type: FILTER_PROJECTS,
+    payload: query
   };
 }

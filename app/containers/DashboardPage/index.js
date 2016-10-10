@@ -3,7 +3,7 @@ import { subscribe } from 'horizon-react';
 import Dashboard from 'components/Dashboard';
 import { rankProject } from 'utils/ranking';
 import {PAGE_SIZE, ROTATION_INTERVAL} from 'utils/constants';
-import {toggleCarousel, rotatePage} from './actions';
+import {filterProjects, toggleCarousel, rotatePage} from './actions';
 
 
 function getPage(props){
@@ -44,8 +44,13 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
   }
 
   get projects(){
-    const sortedProjects = this.props.projects.sort((p1, p2) => rankProject(p2, false) - rankProject(p1, false));
+    let sortedProjects = this.props.projects.sort((p1, p2) => rankProject(p2, false) - rankProject(p1, false));
     sortedProjects.forEach( (el, i) => el.rankPlace = i + 1 );
+    if(this.props.projectFilter){
+      sortedProjects = sortedProjects.filter((el) => {
+        return el.project_name.indexOf(this.props.projectFilter) !== -1;
+      })
+    }
     const offset = (this.props.page - 1) * PAGE_SIZE;
     return sortedProjects.slice(offset, offset + PAGE_SIZE);
   }
@@ -81,7 +86,7 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
   }
 
   render() {
-    const {projects, toggleCarousel, ...remainingProps} = this.props; // eslint-disable-line no-unused-vars
+    const {projects, toggleCarousel,filterProjects,  ...remainingProps} = this.props; // eslint-disable-line no-unused-vars
     return (
       <Dashboard projects={this.projects}
                  topProjects={this.topProjects}
@@ -89,6 +94,7 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
                  lastUpdatedProject={this.lastUpdatedProject}
                  projectsCount={this.projectsCount}
                  carouselToggleOnClick={() => this.toggleCarousel()}
+                 filterProjectsOnKeyUp={filterProjects}
                  {...remainingProps} />
     );
   }
@@ -96,10 +102,12 @@ class DashboardPage extends React.Component { // eslint-disable-line react/prefe
 
 
 DashboardPage.propTypes = {
+  projectFilter: React.PropTypes.string,
   projects: React.PropTypes.array.isRequired,
   page: React.PropTypes.number.isRequired,
   toggleCarousel: React.PropTypes.func.isRequired,
   carouselActive: React.PropTypes.bool.isRequired,
+  filterProjects: React.PropTypes.func.isRequired
 };
 
 const mapDataToProps = {
@@ -108,12 +116,14 @@ const mapDataToProps = {
 
 const mapStateToProps = (state, props) => ({
   page: getPage(props),
-  carouselActive: state.get('dashboard').carouselActive,
+  projectFilter: state.get('dashboard').projectFilter,
+  carouselActive: state.get('dashboard').carouselActive
 });
 
 const mapDispatchToProps = {
   toggleCarousel,
   rotatePage,
+  filterProjects
 };
 
 export default subscribe({

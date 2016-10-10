@@ -7,7 +7,7 @@ import DashboardFooter from "components/DashboardFooter";
 
 function Dashboard(props) {
   const {projects, topProjects, lastUpdatedProject, maxPage, page, projectsCount, carouselActive,
-    carouselToggleOnClick} = props;
+    carouselToggleOnClick, filterProjectsOnKeyUp} = props;
 
   return (
     <div>
@@ -16,7 +16,8 @@ function Dashboard(props) {
                        maxPage={maxPage}
                        topProjects={topProjects}
                        lastUpdatedProject={lastUpdatedProject}
-                       projectsCount={projectsCount} />
+                       projectsCount={projectsCount}
+                       filterProjectsOnKeyUp={filterProjectsOnKeyUp} />
       <DashboardBody projects={projects} />
       <DashboardFooter page={page}
                        maxPage={maxPage}
@@ -35,6 +36,7 @@ Dashboard.propTypes = {
   projectsCount: React.PropTypes.number,
   carouselActive: React.PropTypes.bool,
   carouselToggleOnClick: React.PropTypes.func,
+  filterProjectsOnKeyUp: React.PropTypes.func.isRequired
 };
 
 export default Dashboard;
