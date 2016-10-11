@@ -39,7 +39,7 @@ ProjectDetailsPage.propTypes = {
 };
 
 const mapDataToProps = {
-  allProjects: (hz, props) => hz('reports').order("id"),
+  allProjects: (hz) => hz('reports').order("id"),
   projects: (hz, props) => hz('reports').find(props.params.projectId),
   history: (hz, props) => hz('reports_history').findAll({'project_id' : props.params.projectId})
 };

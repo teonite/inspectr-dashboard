@@ -41,6 +41,32 @@ You'll be redirected to details page, where You'll be able to review every repor
 
 In future, You'll also be able to get Your results in a timeline graph, and also review report's history.
 
+## Docker
+
+1. Build application: 
+
+`docker build -t insp-dash .`
+
+2. To run this app the best approach is to use **docker-compose**. Example `docker-compose.yml` file: 
+
+```
+dashboard:
+  image: insp-dash
+  ports:
+  - "12345:8181"
+  links:
+  - rethinkdb
+
+rethinkdb:
+  image: rethinkdb:2.3
+  ports:
+  - "8080:8080"
+  - "28015:28015"
+  volumes:
+  - /srv/inspectr/rethinkdb:/data
+```
+
+Now, go to `http://localhost:12345` (if running on __localhost__) to see app running as a docker containers
 
 [inspectr]:https://git.teonite.net/inspectr/inspectr
 [horizon]:http://horizon.io/

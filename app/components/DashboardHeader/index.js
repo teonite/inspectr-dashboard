@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 import TopProjects from 'components/TopProjects';
@@ -16,9 +17,9 @@ class DashboardHeader extends React.Component  {
     };
   }
 
-  _handleKeyUp = (event) => {
+  _handleKeyUp(event) {
       this.props.filterProjectsOnKeyUp(event.target.value);
-    }
+  }
 
   render() {
     const {topProjects, lastUpdatedProject, projectsCount} = this.props;
