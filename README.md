@@ -1,3 +1,24 @@
+# Quick start
+
+Create `docker-compose.yml` file and run `docker-compose up`. Example: 
+
+```
+dashboard:
+  image: insp-dash
+  ports:
+  - "12345:8181"
+  links:
+  - rethinkdb
+
+rethinkdb:
+  image: rethinkdb:2.3
+  ports:
+  - "8080:8080"
+  - "28015:28015"
+```
+
+Open `localhost:12345` to see running dashboard
+
 # InspectR Dashboard
 
 **This project is a dashboard for InspectR tool. For InspectR CLI reference please go [here][inspectr]**
