@@ -16,13 +16,12 @@ function CoffeelintVis({summary}) {
 
   return (
     <div className="chart">
-      <h3>
-        <ReportHeader tip="Style checker for CoffeeScript" name="Coffeelint" />
+      <ReportHeader tip="Style checker for CoffeeScript" name="Coffeelint">
         <span className="pull-right">
           <span className="text-orange">Warnings: {summary.total_warnings} </span>
           <span className="text-red">Errors: {summary.total_errors}</span>
         </span>
-      </h3>
+      </ReportHeader>
       <MultiProgressBar segments={segments}/>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReportHeader from 'components/DetailReportHeader';
-import OutputDisplay from 'components/OutputDisplay';
+import DetailReportWrapper from 'components/DetailReportWrapper';
 
 class Unittest extends React.Component  {
 
@@ -16,20 +15,10 @@ class Unittest extends React.Component  {
     const {report} = this.props;
 
     return (
-      <div className="section">
-        <div className="row">
-          <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
-            <ReportHeader name="Python Unittests" tip="The Python unit testing framework" open={this.state.open}/>
-          </div>
-          <div className="col-xs-6 col-xs-12 chart">
-            <p className="test-result">
-              <span className="text-green">Passed: {report.summary.passed_tests} </span>
-              <span className="text-red">Errors: {report.summary.failed_tests}</span>
-            </p>
-          </div>
-        </div>
-        <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
-      </div>
+      <DetailReportWrapper name="Python Unittests" tip="The Python unit testing framework" stderr={report.stderr} stdout={report.stdout} >
+        <span className="text-green">Passed: {report.summary.passed_tests} </span>
+        <span className="text-red">Errors: {report.summary.failed_tests}</span>
+      </DetailReportWrapper>
     );
   }
 }

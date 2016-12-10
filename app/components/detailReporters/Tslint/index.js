@@ -1,7 +1,6 @@
 import React from 'react';
 
-import ReportHeader from 'components/DetailReportHeader';
-import OutputDisplay from 'components/OutputDisplay';
+import DetailReportWrapper from 'components/DetailReportWrapper';
 
 class Tslint extends React.Component  {
 
@@ -16,19 +15,9 @@ class Tslint extends React.Component  {
     const {report} = this.props;
 
     return (
-        <div className="section">
-          <div className="row">
-            <div className="col-xs-6 col-xs-12 title" onClick={ ()=> this.setState({ open: !this.state.open }) }>
-              <ReportHeader name="TSLint" tip="Style checker for TypeScript" open={this.state.open}/>
-            </div>
-            <div className="col-xs-6 col-xs-12 chart">
-              <p className="test-result">
-                <span className="text-red">Errors: {report.summary.total_errors} </span>
-              </p>
-            </div>
-          </div>
-          <OutputDisplay open={this.state.open} stderr={report.stderr} stdout={report.stdout} />
-        </div>
+      <DetailReportWrapper name="TSLint" tip="Style checker for TypeScript" stderr={report.stderr} stdout={report.stdout} >
+        <span className="text-red">Errors: {report.summary.total_errors} </span>
+      </DetailReportWrapper>
     );
   }
 }

@@ -11,12 +11,11 @@ function KarmaCoverageVis({summary}) {
   ];
   return (
     <div className="chart">
-      <h3>
-        <ReportHeader tip="Test coverage tool for JS" name="Karma Coverage" />
+      <ReportHeader tip="Test coverage tool for JS" name="Karma Coverage">
         <span className="pull-right">
           <span className="text-gray">Coverage: {summary.lines_percent}%</span>
         </span>
-      </h3>
+      </ReportHeader>
       <MultiProgressBar segments={segments}/>
     </div>
   );

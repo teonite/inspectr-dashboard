@@ -3,11 +3,11 @@ import DetailsHeader from 'components/DetailsHeader'
 import DetailsBody from 'components/DetailsBody'
 import DetailsFooter from 'components/DetailsFooter'
 
-function ProjectDetails({project}) {
+function ProjectDetails({project, next, previous}) {
 
   return (
     <div>
-      <DetailsHeader/>
+      <DetailsHeader next={next} previous={previous}/>
       <DetailsBody project={project}/>
       <DetailsFooter/>
     </div>
@@ -15,7 +15,9 @@ function ProjectDetails({project}) {
 }
 
 ProjectDetails.propTypes = {
-  project: React.PropTypes.object.isRequired
+  project: React.PropTypes.object.isRequired,
+  next: React.PropTypes.string.isRequired,
+  previous: React.PropTypes.string.isRequired
 };
 
 export default ProjectDetails;

@@ -1,18 +1,19 @@
 import React from 'react';
-import { rankProject } from 'utils/ranking';
+import { rankProject, MAX_RANK } from 'utils/ranking';
 import Report from 'components/DetailsReport';
 
 function DetailsBody({project}) {
   const projectRank = rankProject(project);
   const formatDate = (date) => date.toLocaleString('pl-PL');
   const rankClassName = `rank rank-badge-${projectRank}`;
+  const fullRank = `${projectRank} / ${MAX_RANK}`;
 
   return (
       <div className="row">
         <div className="col-xs-12">
           <div className="project-box details">
             <div className="header row">
-              <span className={rankClassName}/>
+              <span title={fullRank} className={rankClassName}/>
               <div className="col-md-8">
                 <h2>{project.project_name}</h2>
                 <p className="subtext">Rank: {projectRank} <span className="text-dark-gray">/</span> Last update: {formatDate(project.time_created)}</p>
