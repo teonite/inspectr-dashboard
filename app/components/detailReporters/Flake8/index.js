@@ -17,8 +17,8 @@ class Flake8 extends React.Component  {
 
     return (
       <DetailReportWrapper open={this.state.open} name="Flake8" tip="Style checker for Python" stderr={report.stderr} stdout={report.stdout} >
-        <span className="text-green">OK: {totalOk} </span>
-        <span className="text-red">Error: {100 - totalOk}</span>
+        <span className="text-green">OK: {totalOk.toFixed(2)}% </span>
+        <span className="text-red">Errors: {report.summary.total_errors}</span>
       </DetailReportWrapper>
     );
   }
