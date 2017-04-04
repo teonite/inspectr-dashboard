@@ -1,4 +1,4 @@
- ![eagle-R]  ![star] ![eagle-L]  
+ ![eagle-R]
 
 # InspectR Dashboard
 
