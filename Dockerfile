@@ -7,7 +7,7 @@ RUN cd /app/ && npm install
 ADD . /app
 RUN cd /app/ && npm run build
 
-ADD .hz/ /app/.hz/
+ADD docker/.hz/ /app/.hz/
 
 EXPOSE 80
 EXPOSE 443
