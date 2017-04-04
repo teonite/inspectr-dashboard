@@ -1,23 +1,11 @@
 # Quick start
 
-Create `docker-compose.yml` file and run `docker-compose up`. Example: 
-
-```
-dashboard:
-  image: insp-dash
-  ports:
-  - "12345:8181"
-  links:
-  - rethinkdb
-
-rethinkdb:
-  image: rethinkdb:2.3
-  ports:
-  - "8080:8080"
-  - "28015:28015"
-```
-
+Run `docker-compose up` in `inspectr-dashboard` 
 Open `localhost:12345` to see running dashboard
+
+**You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
+
 
 # InspectR Dashboard
 
@@ -39,6 +27,8 @@ Also , if You want to deploy this application, simply run `npm run build` and Yo
 # Running 
 1. First, we need to start out [Horizon.io][horizon] backend by running `npm run horizon` (goto http://localhost:8181 to see admin panel)
 2. Run `npm run start` and goto http://localhost:3000 to see it works!
+
+**You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist" **
 
 # Docks
 InspectR dashboard is a **start-and-go** application, since, if You run it once, You won't probably would need to restart it.
