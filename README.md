@@ -1,6 +1,8 @@
+ ![eagle-R]  ![star] ![eagle-L]  
+
 # InspectR Dashboard
 
-**This project is a dashboard for InspectR tool. For InspectR CLI reference please go [here][inspectr]**
+**This project is a dashboard for InspectR tool. For more informations about InspectR please go [here][inspectr]**
 
 InspectR dashboard is a graphical representation of the condition of Your projects
 It give's you instant feedback on project status, displaying test results from various testing tools at once.
@@ -13,7 +15,7 @@ It give's you instant feedback on project status, displaying test results from v
 # Quick start
 
 1. Clone this repo using `git clone https://git.teonite.net/inspectr/inspectr-dashboard`
-2. Run `docker-compose up` in `inspectr-dashboard` 
+2. Run `docker-compose up` in inspectr-dashboard 
 3. This docker-compose creating 2 containers: RethinkDB and Inspectr-Dashboard.
 4. Open `localhost:12345` to see running dashboard
 
@@ -102,3 +104,6 @@ Now, go to `http://localhost:12345` (if running on __localhost__) to see app run
 
 [inspectr]:https://git.teonite.net/inspectr/inspectr
 [horizon]:http://horizon.io/
+[eagle-L]: md_imgs/eagle-L.png "Eagle"
+[eagle-R]: md_imgs/eagle-R.png "Eagle"
+[star]: md_imgs/star.png "Star"
