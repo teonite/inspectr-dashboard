@@ -1,5 +1,7 @@
 {
   "project_name": "Inspectr Dashboard",
+  "rethinkdb_host": "localhost",
+  "rethinkdb_port": "28015",
 
   "reporters": [
     {

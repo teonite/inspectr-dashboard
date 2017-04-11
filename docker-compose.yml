@@ -1,5 +1,5 @@
 dashboard:
-  image: teonite/inspectr
+  image: matisse00/dashboard-test
   ports:
   - "12345:8181"
   links:

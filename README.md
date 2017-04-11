@@ -14,14 +14,28 @@ It give's you instant feedback on project status, displaying test results from v
 
 # Quick start
 
-1. Clone this repo using `git clone https://git.teonite.net/inspectr/inspectr-dashboard`
-2. Run `docker-compose up` in inspectr-dashboard 
-3. This docker-compose creating 2 containers: RethinkDB and Inspectr-Dashboard.
-4. Open `localhost:12345` to see running dashboard
+1. Create `docker-compose.yml` file:
+
+```
+dashboard:
+  image: teonite/inspectr
+  ports:
+  - "12345:8181"
+  links:
+  - rethinkdb
+
+rethinkdb:
+  image: rethinkdb:2.3
+  ports:
+  - "8080:8080"
+  - "28015:28015"
+```
+
+2. Run `docker-compose up`
+3. Open `localhost:12345` to see running dashboard
 
 **You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
 Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
-
 
 
 
@@ -48,24 +62,20 @@ To add projects to Your dashboard use [InspectR CLI][inspectr]
 
 
 
-## Overview
+# Overview
 
 InspectR dashboard uses [Horizon.io][horizon] backend, so projects are automatically inserted
 into dashboard after running `inspectr` command from [InspectR CLI][inspectr]
 
 
-
-
-## Ranks
+### Ranks
 
 Every project has it's rank, depending on how well it has passed it's tests.
 Ranking process is pretty much difficult, but in general, if Your project has **rank 1** it means it needs a lot of fixes,
 and if it has **rank 11** it doesn't need fixes at all. Keep Your rank as high as possible!
 
 
-
-
-## Project & reports details
+### Project & reports details
 
 You surely would like to check the console output of Your tests. If you click on any of the projects on dashboard,
 You'll be redirected to details page, where You'll be able to review every reporter's console log and result.
@@ -75,7 +85,7 @@ In future, You'll also be able to get Your results in a timeline graph, and also
 
 
 
-## Docker
+# Building new docker image
 
 1. Build application: 
 
