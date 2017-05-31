@@ -17,8 +17,8 @@ function ProjectBox({project}) {
       <div className="project-box">
         <div className="header">
           <span title={fullRank} className={rankClassName}>
-          <span className="global-rank">{ project.rankPlace }</span>
-        </span>
+            <span className="global-rank">{ project.rankPlace }</span>
+          </span>
           <h2><Link to={`/details/${project.id}`}>{project.project_name}</Link></h2>
           <p className="subtext">Last update: {formatDate(project.time_created)}</p>
         </div>

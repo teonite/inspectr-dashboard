@@ -25,15 +25,15 @@ class ReportHeader extends React.Component  {
               {open ? '' : <span className="text-gray">{'{'}...{'}'}</span>}
               <ReactTooltip place="right" type="dark" effect="solid"/>
             </h3>
-            </div>
-            <div className="col-xs-6 col-xs-12 chart">
-              <p className="test-result">
-                {children}
-              </p>
-            </div>
           </div>
-          <OutputDisplay open={this.state.open} stderr={stderr} stdout={stdout} />
+          <div className="col-xs-6 col-xs-12 chart">
+            <p className="test-result">
+              {children}
+            </p>
+          </div>
         </div>
+        <OutputDisplay open={this.state.open} stderr={stderr} stdout={stdout} />
+      </div>
       );
     }
 }

@@ -4,11 +4,9 @@ import ReactTooltip from 'react-tooltip'
 function ReportHeader({name, tip, children}) {
   return (
     <h3>
-      <div>
-        <span data-tip={tip}> {name} </span>
-        <ReactTooltip place="right" type="dark" effect="solid"/>
-        {children}
-      </div>
+      <span data-tip={tip}> {name} </span>
+      <ReactTooltip place="right" type="dark" effect="solid"/>
+      {children}
     </h3>
   );
 }
