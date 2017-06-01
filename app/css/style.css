@@ -3,8 +3,8 @@ body { margin: 0; padding: 0 15px 15px 15px; background: url("../img/bg_grid.jpg
 
 h1 { margin: 0; font-size: 23px; }
 h2 { font-size: 21px; font-weight: 600; margin: 0 0 5px 0; }
-h3 { font-size: 13px; font-weight: 700; margin: 0 0 10px 0; text-transform: uppercase; }
 h3 span { font-weight: 400; text-transform: none; }
+h3, .chart h3 > span:first-of-type{ font-size: 13px; font-weight: 700; margin: 0 0 10px 0; text-transform: uppercase; }
 
 a { color: #fff; transition: all 0.2s linear; }
 a:hover, a:active, a:focus { color: #98a3b9; text-decoration: none; }
