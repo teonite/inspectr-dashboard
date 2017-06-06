@@ -49,13 +49,13 @@ class DashboardHeader extends React.Component  {
                 <li>
                   <AllProjects projectsCount={projectsCount} />
                 </li>
-                /*<li>
+                <!--<li>
                   <div className="header search">
                     <a href="#" onClick={()=> this.setState({ open: !this.state.open })} className="rank"><i className="glyphicon glyphicon-search"></i></a>
                     <span className="rect"></span>
                     <h3>Search</h3>
                   </div>
-                </li>*/
+                </li>-->
                 <li className="search-box">
                   <div className="options-box search dropdown">
                     <button className="btn dropdown-toggle circle" type="button" id="dropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -65,7 +65,7 @@ class DashboardHeader extends React.Component  {
                       <li>
                         <form>
                           <input id="searchForm" type="text" placeholder="Search for..."/>
-                          /*{searchBox}*/
+                          <!--{searchBox}-->
                         </form>
                       </li>
                     </ul>
