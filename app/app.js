@@ -5,7 +5,7 @@
  * code.
  */
 import 'babel-polyfill';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 // TODO constrain eslint import/no-unresolved rule to this block
