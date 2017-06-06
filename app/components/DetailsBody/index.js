@@ -24,7 +24,7 @@ function DetailsBody({project}) {
                     <button className="btn dropdown-toggle circle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                       <i className="glyphicon glyphicon-cog" />
                     </button>
-                    <ul className="dropdown-menu" aria-labelledby="ProjectOptionsMenu">
+                    <ul className="dropdown-menu">
                       <li>
                         <a href="#"><i className="glyphicon glyphicon-trash" />Delete project</a>
                       </li>
