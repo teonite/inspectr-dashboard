@@ -25,7 +25,7 @@ class DashboardHeader extends React.Component  {
     const {topProjects, lastUpdatedProject, projectsCount} = this.props;
     let searchBox;
     if(this.state.open) {
-      searchBox = <li><input onKeyUp={this._handleKeyUp} type="text" style={{color: "black"}}/></li>;
+      searchBox = <input id="searchForm"onKeyUp={this._handleKeyUp} type="text" placeholder="Search for..."/>;
     }
     console.log(this.state.open);
     return (
@@ -49,12 +49,26 @@ class DashboardHeader extends React.Component  {
                 <li>
                   <AllProjects projectsCount={projectsCount} />
                 </li>
-                {searchBox}
-                <li>
+                /*<li>
                   <div className="header search">
                     <a href="#" onClick={()=> this.setState({ open: !this.state.open })} className="rank"><i className="glyphicon glyphicon-search"></i></a>
                     <span className="rect"></span>
                     <h3>Search</h3>
+                  </div>
+                </li>*/
+                <li className="search-box">
+                  <div className="options-box search dropdown">
+                    <button className="btn dropdown-toggle circle" type="button" id="dropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i className="glyphicon glyphicon-search" />
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <form>
+                          <input id="searchForm" type="text" placeholder="Search for..."/>
+                          /*{searchBox}*/
+                        </form>
+                      </li>
+                    </ul>
                   </div>
                 </li>
               </ul>
