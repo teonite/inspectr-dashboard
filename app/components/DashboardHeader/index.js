@@ -64,7 +64,7 @@ class DashboardHeader extends React.Component  {
                     <ul className="dropdown-menu">
                       <li>
                         <form>
-                          <input id="searchForm" type="text" placeholder="Search for...">
+                          <input id="searchForm" type="text" placeholder="Search for..."/>
                           /*{searchBox}*/
                         </form>
                       </li>
