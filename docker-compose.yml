@@ -1,5 +1,5 @@
 dashboard:
-  image: matisse00/dashboard-test
+  image: tcn.re/inspectr/dashboard
   ports:
   - "12345:8181"
   links:
