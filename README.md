@@ -2,7 +2,9 @@
 
 # InspectR Dashboard
 
-**This project is a dashboard for InspectR tool. For more informations about InspectR please go [here][inspectr]**
+###This project is a dashboard for InspectR tool. For more informations about InspectR please go [here][inspectr]
+
+ ![preview]
 
 InspectR dashboard is a graphical representation of the condition of Your projects
 It give's you instant feedback on project status, displaying test results from various testing tools at once.
@@ -12,29 +14,29 @@ It give's you instant feedback on project status, displaying test results from v
 
 
 
-# Quick start
+# Instalation (recomended)
 
 1. Create `docker-compose.yml` file:
 
-```
-dashboard:
-  image: matisse00/dashboard-test
-  ports:
-  - "12345:8181"
-  links:
-  - rethinkdb
-
-rethinkdb:
-  image: rethinkdb:2.3
-  ports:
-  - "8080:8080"
-  - "28015:28015"
-```
+    ```
+    dashboard:
+      image: matisse00/dashboard-test
+      ports:
+      - "12345:8181"
+      links:
+      - rethinkdb
+    
+    rethinkdb:
+      image: rethinkdb:2.3
+      ports:
+      - "8080:8080"
+      - "28015:28015"
+    ```
 
 2. Run `docker-compose up`
 3. Open `localhost:12345` to see running dashboard
 
-**You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+####You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection reports does not exist"
 Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
 
 
@@ -42,27 +44,66 @@ Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
 
 # Local installation
 
-1. Clone this repo using `git clone https://git.teonite.net/inspectr/inspectr-dashboard`
-2. Run `npm install` to install project dependencies
+1) Clone this repo 
 
-Also , if You want to deploy this application, simply run `npm run build` and You'll have Your build folder ready!
+    ```
+    git clone https://git.teonite.net/inspectr/inspectr-dashboard
+    ```
+2) Install project dependencies
+
+    ```
+    npm install
+    ```
 
 
 ### Running 
-1. First, we need to start out [Horizon.io][horizon] backend by running `npm run horizon` (goto http://localhost:8181 to see admin panel)
-2. Run `npm run start` and goto http://localhost:3000 to see it works!
+1. **Run InspectR first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+2. First, we need to start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
 
-**You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist" **
+    ```
+    npm run horizon
+    ```
+3. Start dashboard 
+    ```
+    npm run start
+    ``` 
+
+Go to `http://localhost:3000` to see it works!
 
 
-### Docks
-InspectR dashboard is a **start-and-go** application, since, if You run it once, You won't probably would need to restart it.
+# Local installation (Docker)
+
+1. Clone this repo
+
+    ```
+    git clone https://git.teonite.net/inspectr/inspectr-dashboard
+    ```
+
+2. Change docker compose file `docker-compose.yml` file: 
+
+    ```
+    dashboard:
+      build: .
+      ports:
+      - "12345:8181"
+      links:
+      - rethinkdb
+    
+    rethinkdb:
+      image: rethinkdb:2.3
+      ports:
+      - "8080:8080"
+      - "28015:28015"
+      volumes:
+      - /srv/inspectr/rethinkdb:/data
+    ```
+
+Now, go to `http://localhost:12345` to see app running as a docker containers
+
+
+# Docs
+###Adding projects
 To add projects to Your dashboard use [InspectR CLI][inspectr]
-
-
-
-
-# Overview
 
 InspectR dashboard uses [Horizon.io][horizon] backend, so projects are automatically inserted
 into dashboard after running `inspectr` command from [InspectR CLI][inspectr]
@@ -84,36 +125,9 @@ In future, You'll also be able to get Your results in a timeline graph, and also
 
 
 
-
-# Building new docker image
-
-1. Build application: 
-
-`docker build -t insp-dash .`
-
-2. To run this app the best approach is to use **docker-compose**. Example `docker-compose.yml` file: 
-
-```
-dashboard:
-  image: insp-dash
-  ports:
-  - "12345:8181"
-  links:
-  - rethinkdb
-
-rethinkdb:
-  image: rethinkdb:2.3
-  ports:
-  - "8080:8080"
-  - "28015:28015"
-  volumes:
-  - /srv/inspectr/rethinkdb:/data
-```
-
-Now, go to `http://localhost:12345` (if running on __localhost__) to see app running as a docker containers
-
 [inspectr]:https://git.teonite.net/inspectr/inspectr
 [horizon]:http://horizon.io/
 [eagle-L]: md_imgs/eagle-L.png "Eagle"
 [eagle-R]: md_imgs/eagle-R.png "Eagle"
 [star]: md_imgs/star.png "Star"
+[preview]: md_imgs/dashboard_preview.png "Star"
