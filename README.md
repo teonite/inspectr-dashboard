@@ -101,7 +101,7 @@ Now, go to `http://localhost:12345` to see app running as a docker containers
 
 # Docs
 
-###Adding projects
+### Adding projects
 
 To add projects to Your dashboard use [InspectR CLI][inspectr]
 
