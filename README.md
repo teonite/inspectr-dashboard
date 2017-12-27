@@ -35,7 +35,7 @@ It give's you instant feedback on project status, displaying test results from v
 3. Open `localhost:12345` to see running dashboard
 
 **You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection reports does not exist"
-Check [Inspectr-CLI][inspectr] to see how to run Inspectr.**
+Check [InspectR][inspectr] to see how to run Inspectr.**
 
 
 
@@ -55,7 +55,7 @@ Check [Inspectr-CLI][inspectr] to see how to run Inspectr.**
 
 
 ### Running 
-1. **Run [InspectR-CLI][inspectr] first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+1. **Run [InspectR][inspectr] first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
 2. Start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
 
     ```
@@ -103,10 +103,10 @@ Now, go to `http://localhost:12345` to see app running as a docker containers
 
 ### Adding projects
 
-To add projects to Your dashboard use [InspectR CLI][inspectr]
+To add projects to Your dashboard use [InspectR][inspectr]
 
 InspectR dashboard uses [Horizon.io][horizon] backend, so projects are automatically inserted
-into dashboard after running `inspectr` command from [InspectR CLI][inspectr]
+into dashboard after running `inspectr` command from [InspectR][inspectr]
 
 
 ### Ranks
