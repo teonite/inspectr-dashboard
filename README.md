@@ -34,8 +34,8 @@ It give's you instant feedback on project status, displaying test results from v
 2. Run `docker-compose up`
 3. Open `localhost:12345` to see running dashboard
 
-#### You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection reports does not exist"
-Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
+**You have to run inspectr at your app first to create Collections in RethinkDB, otherwise you'll see error "Collection reports does not exist"
+Check [Inspectr-CLI][inspectr] to see how to run Inspectr.**
 
 
 
