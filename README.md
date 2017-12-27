@@ -10,7 +10,7 @@ It give's you instant feedback on project status, displaying test results from v
 **No more runing from console to console to know if everything works ok!**
 
 
-### This project is a dashboard for InspectR tool which can be found [here][inspectr]
+### **This project is a dashboard for InspectR tool which can be found [here][inspectr]**
 
 
 
