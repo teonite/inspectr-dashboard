@@ -58,8 +58,8 @@ Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
 
 
 ### Running 
-1. **Run InspectR first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
-2. First, we need to start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
+1. **Run [InspectR-CLI][inspectr] first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+2. Start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
 
     ```
     npm run horizon
