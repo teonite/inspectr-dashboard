@@ -12,7 +12,7 @@ It give's you instant feedback on project status, displaying test results from v
 
 **This project is a dashboard for InspectR tool which can be found [here][inspectr]**
 
-# Instalation (recomended)
+# Installation (recommended)
 
 1. Create `docker-compose.yml` file:
 
