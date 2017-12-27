@@ -2,14 +2,15 @@
 
 # InspectR Dashboard
 
-###This project is a dashboard for InspectR tool. For more informations about InspectR please go [here][inspectr]
-
  ![preview]
 
 InspectR dashboard is a graphical representation of the condition of Your projects
 It give's you instant feedback on project status, displaying test results from various testing tools at once.
 
 **No more runing from console to console to know if everything works ok!**
+
+
+###This project is a dashboard for InspectR tool. For more informations about InspectR please go [here][inspectr]
 
 
 
