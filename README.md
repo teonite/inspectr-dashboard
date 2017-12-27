@@ -46,12 +46,10 @@ Check [Inspectr-CLI][inspectr] to see how to run Inspectr.
 # Local installation
 
 1) Clone this repo 
-
     ```
     git clone https://git.teonite.net/inspectr/inspectr-dashboard
     ```
 2) Install project dependencies
-
     ```
     npm install
     ```
