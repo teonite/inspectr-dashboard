@@ -18,7 +18,7 @@ It give's you instant feedback on project status, displaying test results from v
 
     ```
     dashboard:
-      image: matisse00/dashboard-test
+      image: teonite/inspectr
       ports:
       - "12345:8181"
       links:

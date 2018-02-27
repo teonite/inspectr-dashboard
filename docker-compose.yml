@@ -1,5 +1,5 @@
 dashboard:
-  image: tcn.re/inspectr/dashboard
+  image: teonite/inspectr
   ports:
   - "12345:8181"
   links:
