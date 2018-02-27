@@ -1,4 +1,4 @@
- ![eagle-R]
+ ![top]
 
 # InspectR Dashboard
 **No more runing from console to console to know if everything works ok!**
@@ -23,7 +23,7 @@ It give's you instant feedback on project status, displaying test results from v
       - "12345:8181"
       links:
       - rethinkdb
-    
+
     rethinkdb:
       image: rethinkdb:2.3
       ports:
@@ -42,7 +42,7 @@ Check [InspectR][inspectr] to see how to run Inspectr.**
 
 # Local installation
 
-1. Clone this repo 
+1. Clone this repo
 
     ```
     git clone https://git.teonite.net/inspectr/inspectr-dashboard
@@ -54,17 +54,22 @@ Check [InspectR][inspectr] to see how to run Inspectr.**
     ```
 
 
-### Running 
-1. **Run [InspectR][inspectr] first to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
-2. Start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
+### Running
+1. Start RethinkDB
+    ```
+    docker run -d -p 8080:8080 -p 28015:28015 rethinkdb:2.3
+    ```
+2. **Run [InspectR][inspectr] to create Collections in RethinkDB, otherwise you'll see error "Collection *reports* does not exist"**
+
+3. Start out [Horizon.io][horizon] backend (goto `http://localhost:8181` to see admin panel)
 
     ```
     npm run horizon
     ```
-3. Start dashboard 
+4. Start dashboard
     ```
     npm run start
-    ``` 
+    ```
 
 Go to `http://localhost:3000` to see it works!
 
@@ -77,7 +82,7 @@ Go to `http://localhost:3000` to see it works!
     git clone https://git.teonite.net/inspectr/inspectr-dashboard
     ```
 
-2. Change docker compose file `docker-compose.yml` file: 
+2. Change docker compose file `docker-compose.yml` file:
 
     ```
     dashboard:
@@ -86,7 +91,7 @@ Go to `http://localhost:3000` to see it works!
       - "12345:8181"
       links:
       - rethinkdb
-    
+
     rethinkdb:
       image: rethinkdb:2.3
       ports:
@@ -113,7 +118,7 @@ into dashboard after running `inspectr` command from [InspectR][inspectr]
 
 Every project has it's rank, depending on how well it has passed it's tests.
 Ranking process is pretty much difficult, but in general, if Your project has **rank 1** it means it needs a lot of fixes,
-and if it has **rank 11** it doesn't need fixes at all. Keep Your rank as high as possible!
+and if it has **rank 20** it doesn't need fixes at all. Keep Your rank as high as possible!
 
 
 ### Project & reports details
@@ -127,7 +132,5 @@ In future, You'll also be able to get Your results in a timeline graph, and also
 
 [inspectr]:https://git.teonite.net/inspectr/inspectr
 [horizon]:http://horizon.io/
-[eagle-L]: md_imgs/eagle-L.png "Eagle"
-[eagle-R]: md_imgs/eagle-R.png "Eagle"
-[star]: md_imgs/star.png "Star"
-[preview]: md_imgs/dashboard_preview.png "Star"
+[top]: md_imgs/top.png "Badge"
+[preview]: md_imgs/dashboard_preview.png "Preview"
