@@ -127,6 +127,15 @@ url("../img/corner_bottom_left.png") no-repeat left bottom; }
 .rank.rank-badge-9 { background: url("../img/rank-9.png") no-repeat center center; }
 .rank.rank-badge-10 { background: url("../img/rank-10.png") no-repeat center center; }
 .rank.rank-badge-11 { background: url("../img/rank-11.png") no-repeat center center; }
+.rank.rank-badge-12 { background: url("../img/rank-12.png") no-repeat center center; }
+.rank.rank-badge-13 { background: url("../img/rank-13.png") no-repeat center center; }
+.rank.rank-badge-14 { background: url("../img/rank-14.png") no-repeat center center; }
+.rank.rank-badge-15 { background: url("../img/rank-15.png") no-repeat center center; }
+.rank.rank-badge-16 { background: url("../img/rank-16.png") no-repeat center center; }
+.rank.rank-badge-17 { background: url("../img/rank-17.png") no-repeat center center; }
+.rank.rank-badge-18 { background: url("../img/rank-18.png") no-repeat center center; }
+.rank.rank-badge-19 { background: url("../img/rank-19.png") no-repeat center center; }
+.rank.rank-badge-20 { background: url("../img/rank-20.png") no-repeat center center; }
 .rank .global-rank { position: absolute; height: 24px; width: 24px; top: 10px; right: 9px; border-radius: 13px; background-color: #131925; border: 1px solid #363d4b; text-align: center; font-size: 12px; font-weight: 700; line-height: 21px; }
 
 .top-projects h2 { margin-bottom: 0; padding: 0 0 0 25px; font-size: 12px; font-weight: 600; text-transform: uppercase; height: 50px; vertical-align: middle; display: table-cell; background: url("../img/red-stripes-right.png") no-repeat left center; }

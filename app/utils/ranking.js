@@ -36,7 +36,7 @@ const reportRanking = {
   'tslint': (report) => invertedArctanAsymptote(report.summary.total_errors),
 };
 
-export const MAX_RANK = 11;
+export const MAX_RANK = 20;
 
 export const rankProject = (project, scale=true) => {
   // calculate rank: range <0, 1)
