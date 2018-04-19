@@ -8,7 +8,6 @@ variables:
 
 stages:
   - build
-  - inspect
 
 build_image:
   stage: build
