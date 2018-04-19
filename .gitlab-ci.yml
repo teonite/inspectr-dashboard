@@ -15,5 +15,7 @@ build_image:
     - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
+  only:
+    - tags
   tags:
     - linux
