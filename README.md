@@ -130,7 +130,7 @@ In future, You'll also be able to get Your results in a timeline graph, and also
 
 
 
-[inspectr]:https://git.teonite.net/inspectr/inspectr
+[inspectr]:https://gitlab.com/teonite/inspectr
 [horizon]:http://horizon.io/
 [top]: md_imgs/top.png "Badge"
 [preview]: md_imgs/dashboard_preview.png "Preview"
