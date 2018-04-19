@@ -1,3 +1,11 @@
+image: docker
+
+services:
+  - docker:dind
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
 stages:
   - build
   - inspect
@@ -5,15 +13,8 @@ stages:
 build_image:
   stage: build
   script:
-    - docker build -t tcn.re/inspectr/dashboard .
-    - docker push tcn.re/inspectr/dashboard
-  tags:
-    - linux
-
-inspect:
-  stage: inspect
-  script:
-    - docker run -v $(pwd):/code -v /home/gitlab-runner/.inspectr_connector.json:/root/.inspectr_connector.json tcn.re/inspectr/inspectr /bin/bash -c "npm install && inspectr" || true
-    - docker run -v $(pwd):/code tcn.re/inspectr/inspectr find /code -user root -exec rm -rf "{}" ';' || true
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
   tags:
     - linux
