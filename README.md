@@ -45,7 +45,7 @@ Check [InspectR][inspectr] to see how to run Inspectr.**
 1. Clone this repo
 
     ```
-    git clone https://git.teonite.net/inspectr/inspectr-dashboard
+    git clone https://gitlab.com/teonite/inspectr-dashboard
     ```
 2. Install project dependencies
 
@@ -79,7 +79,7 @@ Go to `http://localhost:3000` to see it works!
 1. Clone this repo
 
     ```
-    git clone https://git.teonite.net/inspectr/inspectr-dashboard
+    git clone https://gitlab.com/teonite/inspectr-dashboard
     ```
 
 2. Change docker compose file `docker-compose.yml` file:
